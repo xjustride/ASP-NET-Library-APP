@@ -1,0 +1,48 @@
+﻿@model List<Book>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h4>Lista książek</h4>
+<a class="btn btn-primary" asp-controller="Book" asp-action="Create">Dodaj książkę</a>
+
+@if (Model.Count > 0)
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model[0].title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].publishinghouse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].BookStatus)
+            </th>
+            <th>
+                Akcje
+            </th>
+        </tr>
+        @foreach (var item in @Model)
+        {
+            <tr>
+                <td>
+                    @item.title
+                </td>
+                <td>
+                    @item.publishinghouse
+                </td>
+                <td>
+                    @item.BookStatus.GetDisplayName()
+                </td>
+                <td>
+                    <a class="btn btn-outline-secondary" asp-controller="Book" asp-action="Update" asp-route-id="@item.id"> Edycja</a>
+                    <a class="btn btn-outline-info" asp-controller="Book" asp-action="Details" asp-route-id="@item.id"> Szczegóły</a>
+                    <a class="btn btn-outline-danger" asp-controller="Book" asp-action="Delete" asp-route-id="@item.id"> Usuń</a>
+                </td>
+
+            </tr>
+        }
+    </table>
+}

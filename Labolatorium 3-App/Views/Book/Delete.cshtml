@@ -1,0 +1,12 @@
+﻿@model Book 
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h4 class="text-danger"> Czy na pewno chcesz usunąć książkę o nazwie @Model.title</h4>
+<form asp-controller="Book" asp-action="Delete">
+    <input asp-for="title" />
+    <button type="submit">Tak</button>
+    <a class="btn btn-primary" asp-action="Index">Nie</a>
+</form>

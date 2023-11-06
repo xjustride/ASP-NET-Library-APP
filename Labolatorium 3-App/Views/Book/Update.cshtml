@@ -1,0 +1,48 @@
+﻿@model Book
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h4>Edytuj książkę</h4>
+<br />
+<form asp-controller="Book" asp-action="Update" method="post">
+    <input asp-for="id" />
+    <div class="mb-3">
+        <label asp-for="title">Tytuł</label>
+        <input asp-for="title" /> <br />
+        <span class="text-danger" asp-validation-for="title"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="page_no">Liczba stron</label>
+        <input asp-for="page_no" /> <br />
+        <span class="text-danger" asp-validation-for="page_no"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="isbn">ISBN</label>
+        <input asp-for="isbn" /> <br />
+        <span class="text-danger" asp-validation-for="isbn"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="publicationdate">Data publikacji</label>
+        <input asp-for="publicationdate" /> <br />
+        <span class="text-danger" asp-validation-for="publicationdate"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="publishinghouse">Wydawnictwo</label>
+        <input asp-for="publishinghouse" /> <br />
+        <span class="text-danger" asp-validation-for="publishinghouse"></span>
+    </div>
+    <div>
+        <label asp-for="BookStatus">Status dostępności</label>
+        <div>
+            <span asp-validation-for="BookStatus" class="text-danger"></span>
+        </div>
+        <select class="form-control" asp-for="BookStatus" asp-items="@Html.GetEnumSelectList<BookStatus>()"></select>
+    </div> 
+    <br />
+    <div class="mb-3">
+        <button class="btn btn-primary" type="submit">Zapisz</button>
+        <button class="btn btn-secondary" type="reset">Cofnij</button>
+    </div>
+</form>

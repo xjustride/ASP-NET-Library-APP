@@ -1,0 +1,40 @@
+﻿@model Contact
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h3>Dodaj kontakt</h3>
+<form asp-controller="Contact" asp-action="Create" method="post">
+    <div class ="mb-3">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" /> <br />
+        <span class="text-danger" asp-validation-for="Name"></span>
+    </div>
+    <div class ="mb-3">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" /> <br />
+        <span class="text-danger" asp-validation-for="Email"></span>
+    </div>
+    <div class ="mb-3">
+        <label asp-for="Phone"></label>
+        <input asp-for="Phone" /> <br />
+        <span class="text-danger" asp-validation-for="Phone"></span>
+    </div>
+    <div class ="mb-3">
+        <label asp-for="Birth"></label>
+        <input asp-for="Birth" /> <br />
+        <span class="text-danger" asp-validation-for="Birth"></span>
+    </div>
+    <div>
+        <label asp-for="Priority">Kategoria</label>
+        <div>
+            <span asp-validation-for="Priority" class="text-danger"></span>
+        </div>
+        <select class="form-control" asp-for="Priority" asp-items="@Html.GetEnumSelectList<Priority>()"></select>
+    </div>
+    <div class="mb-3">
+        <button class="btn btn-primary"type="submit">Utwórz</button>
+        <button class="btn btn-secondary" type="reset">Wyczyść</button>
+    </div>
+</form>
