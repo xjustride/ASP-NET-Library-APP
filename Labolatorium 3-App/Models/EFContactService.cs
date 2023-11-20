@@ -6,52 +6,69 @@ namespace Labolatorium_3_App.Models
 {
     public class EFContactService : IContactService
     {
-        private readonly AppDbContext __ctx;
-
-        public EFContactService(AppDbContext ctx)
+        private readonly AppDbContext _context;
+        public EFContactService(AppDbContext context)
         {
-            __ctx = ctx;
+            _context = context;
         }
+
+
 
         public int Add(Contact contact)
         {
-            var e = __ctx.Contacts.Add(ContactMapper.ToEntity(contact));
-            __ctx.SaveChanges();
-            int id = e.Entity.ContactId;
+            var e = _context.Contacts.Add(ContactMapper.ToEntity(contact));
+            _context.SaveChanges();
+            int id = e.Entity.Id;
+
             return id;
         }
 
         public void Delete(int id)
         {
-            ContactEntity? find = __ctx.Contacts.Find(id);
-            if (find != null) 
+            ContactEntity? find = _context.Contacts.Find(id);
+            if (find != null)
             {
-                __ctx.Contacts.Remove(find);
-                __ctx.SaveChanges();
+                _context.Contacts.Remove(find);
+                _context.SaveChanges();
             }
-
         }
 
         public List<Contact> FindAll()
         {
-            return __ctx.Contacts.Select(e => ContactMapper.FromEntity(e)).ToList();
+            return _context.Contacts.Select(e => ContactMapper.FromEntity(e)).ToList();
         }
 
         public List<OrganizationEntity> FindAllOrganizations()
         {
-            return __ctx.Organizations.ToList();
+            return _context.Organizations.ToList();
         }
 
         public Contact? FindById(int id)
         {
-            ContactEntity? find = __ctx.Contacts.Find(id);
+            ContactEntity? find = _context.Contacts.Find(id);
+
             return find != null ? ContactMapper.FromEntity(find) : null;
+
+
         }
 
         public void Update(Contact contact)
         {
-            __ctx.Contacts.Update(ContactMapper.ToEntity(contact));
-            __ctx.SaveChanges();
+            var existingEntity = _context.Contacts.Find(contact.Id);
+
+            if (existingEntity != null)
+            {
+                var updatedEntity = ContactMapper.ToEntity(contact);
+
+                _context.Entry(existingEntity).CurrentValues.SetValues(updatedEntity);
+
+                _context.SaveChanges();
+            }
+            else
+            {
+                throw new KeyNotFoundException("Contact not found");
+            }
         }
+
     }
 }

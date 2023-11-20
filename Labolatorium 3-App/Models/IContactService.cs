@@ -1,6 +1,8 @@
 ﻿using Data.Entities;
 using Labolatorium_3_App.Models;
 
+namespace Labolatorium_3_App.Models;
+
 public interface IContactService
 {
     int Add(Contact book);
@@ -10,4 +12,3 @@ public interface IContactService
     Contact? FindById(int id);
     List<OrganizationEntity> FindAllOrganizations();
 }
-

@@ -1,17 +1,21 @@
-﻿using Labolatorium_3_App.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Labolatorium_3_App.Models;
 
-namespace Labolatorium_3_App.Controllers
+namespace Labolatorium_3_App.Models
 {
     public class ContactController : Controller
     {
-        //static readonly Dictionary<int, Contact> _contacts = new Dictionary<int, Contact>();
         private readonly IContactService _contactService;
 
         public ContactController(IContactService contactService)
         {
             _contactService = contactService;
         }
+
+
+
+        //static readonly Dictionary<int, Contact> _contacts = new Dictionary<int, Contact> ();
+
 
         public IActionResult Index()
         {
@@ -22,20 +26,15 @@ namespace Labolatorium_3_App.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            Contact model = new Contact();  
-            model.Organizations = _contactService.FindAllOrganizations()
-            .Select(oe => new Microsoft.AspNetCore.Mvc.Rendering.SelectListItem()
+            Contact model = new Contact();
+            model.Organizations = _contactService.FindAllOrganizations().Select(eo => new Microsoft.AspNetCore.Mvc.Rendering.SelectListItem()
             {
-                Text = oe.Name,
-                Value = oe.Id.ToString(),
+                Text = eo.Name,
+                Value = eo.Id.ToString(),
             }).ToList();
-            model.Organizations.Add(new Microsoft.AspNetCore.Mvc.Rendering.SelectListItem()
-            {
-                Text = "Brak organizacji",
-                Value = ""
-            }); ;
             return View(model);
         }
+
 
         [HttpPost]
         public IActionResult Create(Contact model)
@@ -43,36 +42,56 @@ namespace Labolatorium_3_App.Controllers
             if (ModelState.IsValid)
             {
                 _contactService.Add(model);
+                //dodanie modelu do aplikacji (zapamiętać dane)
                 return RedirectToAction("Index");
+
             }
-            else
-            {
-                return View(model);
-            }
+            return View(); // ponowne wyświetlenie formualrza po dodaniu jeśli są błędy
         }
 
         [HttpGet]
         public IActionResult Update(int id)
         {
             Contact contact = _contactService.FindById(id);
-            if(contact == null)
+
+            if (contact == null)
             {
                 return NotFound();
             }
+
+            contact.Organizations = _contactService.FindAllOrganizations().Select(eo => new Microsoft.AspNetCore.Mvc.Rendering.SelectListItem
+            {
+                Text = eo.Name,
+                Value = eo.Id.ToString(),
+            }).ToList();
+
             return View(contact);
         }
+
+
         [HttpPost]
         public IActionResult Update(Contact model)
         {
-            if (ModelState.IsValid) 
+            model.Organizations = _contactService.FindAllOrganizations().Select(eo => new Microsoft.AspNetCore.Mvc.Rendering.SelectListItem
             {
-                _contactService.Update(model);
+                Text = eo.Name,
+                Value = eo.Id.ToString(),
+            }).ToList();
+            if (ModelState.IsValid)
+
+            {
+                _contactService.Update(model); // przypisanie nowych danych
                 return RedirectToAction("Index");
             }
-            return View();
+
+
+
+            return View(model);
         }
+
+
         [HttpGet]
-        public IActionResult Delete(int id) 
+        public IActionResult Delete(int id)
         {
             Contact contact = _contactService.FindById(id);
             if (contact == null)
@@ -81,23 +100,31 @@ namespace Labolatorium_3_App.Controllers
             }
             return View(contact);
         }
+
         [HttpPost]
-        public IActionResult Delete(Contact model) 
+        public IActionResult Delete(Contact model)
         {
-            _contactService.Delete(model.id);
+            _contactService.Delete(model.Id);
             return RedirectToAction("Index");
         }
+
         [HttpGet]
         public IActionResult Details(int id)
         {
             Contact contact = _contactService.FindById(id);
+
             if (contact == null)
             {
                 return NotFound();
             }
+
+            var organization = _contactService.FindAllOrganizations()
+                .FirstOrDefault(eo => eo.Id == contact.OrganizationId);
+
+
             return View(contact);
         }
 
-    }
 
+    }
 }

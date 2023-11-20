@@ -1,66 +1,38 @@
 ﻿using Data.Entities;
-using System.Security.Cryptography.X509Certificates;
+using Labolatorium_3_App.Models;
 
-namespace Labolatorium_3_App.Models
+namespace Labolatorium_3_App.Models;
 
+public class ContactMapper
 {
-    public class ContactMapper
+    public static ContactEntity ToEntity(Contact model)
     {
-        public static ContactEntity ToEntity(Contact model)
+        return new ContactEntity()
         {
-            return new ContactEntity
-            {
-                ContactId = model.id,
-                Birth = model.Birth,
-                Name = model.Name,
-                Email = model.Email,
-                Phone = model.Phone,
-                OrgaznizationId = model.OrganizationId,
-                Priority = (int)model.Priority,
-            };
-        }
+            Created = model.Created,
+            Id = model.Id,
+            Name = model.Name,
+            Email = model.Email,
+            Phone = model.Phone,
+            Birth = model.Birth,
+            Priority = (int)model.Priority,
+            OrganizationId = (int)model.OrganizationId,
 
-        public static BookEntity ToEntity(Book model) 
+        };
+    }
+
+    public static Contact FromEntity(ContactEntity entity)
+    {
+        return new Contact()
         {
-            return new BookEntity
-            {
-                BookId = model.id,
-                Title = model.Title,
-                Page_No = model.Page_No,
-                ISBN = model.ISBN,
-                PublicationDate = model.PublicationDate,
-                PublishingHouse = model.PublishingHouse,
-            };
-        }
-
-
-
-
-
-        public static Contact FromEntity(ContactEntity entity) 
-        {
-            return new Contact()
-            {
-                id = entity.ContactId,
-                Birth = entity.Birth,
-                Name = entity.Name,
-                Email = entity.Email,
-                Phone = entity.Phone,
-                OrganizationId = entity.OrgaznizationId,
-                Priority = (Priority)entity.Priority,
-            };
-            
-
-        }
-
-        public static Contact FromEntity(BookEntity entity)
-        {
-            return new Contact()
-            {
-                
-            };
-
-
-        }
+            Created = entity.Created,
+            Id = entity.Id,
+            Name = entity.Name,
+            Email = entity.Email,
+            Phone = entity.Phone,
+            Birth = entity.Birth,
+            Priority = (Priority)entity.Priority,
+            OrganizationId = entity.OrganizationId,
+        };
     }
 }

@@ -14,6 +14,7 @@ namespace Labolatorium_3_App
             builder.Services.AddTransient<IContactService, EFContactService>();
             builder.Services.AddSingleton<IBookService, MemoryBookService>();
             builder.Services.AddSingleton<IDateTimeProvider, CurrentDateTimeProvider>();
+            builder.Services.AddSingleton<IContactService, MemoryContactService>();
             builder.Services.AddDbContext<AppDbContext>();
             var app = builder.Build();
 

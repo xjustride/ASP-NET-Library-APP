@@ -4,39 +4,48 @@
 *@
 @{
 }
-<h1>Dodawanie kontaktu</h1>
-<form asp-controller="Contact" asp-action="Create" method="post">
-    <div class="mb-3">
-        <label asp-for="Name">Imię</label>
-        <input class="form-control" asp-for="Name" />
-        <span asp-validation-for="Name" class="text-danger"></span>
+
+<h1>Dodaj kontakt</h1>
+<form asp-controller="Contact" asp-action="Create" method="post"> 
+   <div class="mb-3">
+       <label asp-for="Name"></label>
+     <input class="form-control" asp-for="Name" />
+     
     </div>
+
     <div class="mb-3">
-        <label asp-for="Email">Email</label>
+        <label asp-for="Email"></label>
         <input class="form-control" asp-for="Email" />
-        <span asp-validation-for="Email" class="text-danger"></span>
+        <span class="text-danger" asp-validation-for="Email"></span>
     </div>
+
     <div class="mb-3">
-        <label asp-for="Phone">Telefon</label>
+        <label asp-for="Phone"></label>
         <input class="form-control" asp-for="Phone" />
-        <span asp-validation-for="Phone" class="text-danger"></span>
+        <span class="text-danger" asp-validation-for="Phone"></span>
     </div>
+
     <div class="mb-3">
-        <label asp-for="Birth">Data urodzenia</label>
+        <label asp-for="Birth"></label>
         <input class="form-control" asp-for="Birth" />
-        <span asp-validation-for="Birth" class="text-danger"></span>
+        <span class="text-danger" asp-validation-for="Birth"></span>
     </div>
-    <div class="mb-3">
+    
+    <div>
         <label asp-for="Priority"></label>
-        <span asp-validation-for="Priority" class="text-danger"></span>
+        <div>
+            <span asp-validation-for="Priority" class="text-danger"></span>
+        </div>
         <select class="form-control" asp-for="Priority" asp-items="@Html.GetEnumSelectList<Priority>()"></select>
     </div>
+
     <div class="mb-3">
         <label asp-for="OrganizationId">Organizacja</label>
-        <select class="form-control" asp-for="OrganizationId" asp-items="@Model.Organizations" ></select>
+        <select class="form-control" asp-for="OrganizationId" asp-items="@Model.Organizations"></select>
     </div>
+
     <div class="mb-3">
-        <button class="btn btn-primary" type="submit">Utwórz</button>
-        <a class="btn btn-primary" asp-controler="Contact" style="float: right;" asp-action="Index">Lista kontaktów</a>
+        <input class="btn btn-primary" type="submit" value="Utwórz"/>
+        <input class="btn btn-secondary" type="reset" value="Wyczyść" />
     </div>
 </form>

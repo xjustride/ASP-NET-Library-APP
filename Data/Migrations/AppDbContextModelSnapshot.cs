@@ -19,16 +19,20 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Data.Entities.ContactEntity", b =>
                 {
-                    b.Property<int>("ContactId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("id");
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("Birth")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("birth_date");
+
+                    b.Property<DateTime>("Created")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
                         .IsRequired()
+                        .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
@@ -36,35 +40,164 @@ namespace Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("OrganizationId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Phone")
+                        .HasMaxLength(12)
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Priority")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("ContactId");
+                    b.HasKey("Id");
 
-                    b.ToTable("contacts", (string)null);
+                    b.HasIndex("OrganizationId");
+
+                    b.ToTable("contacts");
 
                     b.HasData(
                         new
                         {
-                            ContactId = 1,
+                            Id = 1,
                             Birth = new DateTime(2000, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Created = new DateTime(2023, 11, 20, 22, 13, 0, 310, DateTimeKind.Local).AddTicks(9018),
                             Email = "adam@wsei.edu.pl",
                             Name = "Adam",
+                            OrganizationId = 1,
                             Phone = "127813268163",
                             Priority = 1
                         },
                         new
                         {
-                            ContactId = 2,
+                            Id = 2,
                             Birth = new DateTime(1999, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Created = new DateTime(2023, 11, 20, 22, 13, 0, 310, DateTimeKind.Local).AddTicks(9058),
                             Email = "ewa@wsei.edu.pl",
                             Name = "Ewa",
+                            OrganizationId = 1,
                             Phone = "293443823478",
                             Priority = 2
                         });
+                });
+
+            modelBuilder.Entity("Data.Entities.OrganizationEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("organizations");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Uczelnia",
+                            Name = "WSEI"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "Uczelnia",
+                            Name = "UJ"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "Uczelnia",
+                            Name = "AGH"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Description = "Firma",
+                            Name = "NOKIA"
+                        });
+                });
+
+            modelBuilder.Entity("Data.Entities.ContactEntity", b =>
+                {
+                    b.HasOne("Data.Entities.OrganizationEntity", "Ogranization")
+                        .WithMany("Contacts")
+                        .HasForeignKey("OrganizationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Ogranization");
+                });
+
+            modelBuilder.Entity("Data.Entities.OrganizationEntity", b =>
+                {
+                    b.OwnsOne("Data.Models.Address", "Adress", b1 =>
+                        {
+                            b1.Property<int>("OrganizationEntityId")
+                                .HasColumnType("INTEGER");
+
+                            b1.Property<string>("City")
+                                .HasColumnType("TEXT");
+
+                            b1.Property<string>("PostalCode")
+                                .HasColumnType("TEXT");
+
+                            b1.Property<string>("Street")
+                                .HasColumnType("TEXT");
+
+                            b1.HasKey("OrganizationEntityId");
+
+                            b1.ToTable("organizations");
+
+                            b1.WithOwner()
+                                .HasForeignKey("OrganizationEntityId");
+
+                            b1.HasData(
+                                new
+                                {
+                                    OrganizationEntityId = 1,
+                                    City = "Kraków",
+                                    PostalCode = "31-150",
+                                    Street = "Św. Filipa 17"
+                                },
+                                new
+                                {
+                                    OrganizationEntityId = 2,
+                                    City = "Kraków",
+                                    PostalCode = "31-007",
+                                    Street = "Gołębia 24"
+                                },
+                                new
+                                {
+                                    OrganizationEntityId = 3,
+                                    City = "Kraków",
+                                    PostalCode = "31-059",
+                                    Street = "al. Adama Mickiewicza 30"
+                                },
+                                new
+                                {
+                                    OrganizationEntityId = 4,
+                                    City = "Kraków",
+                                    PostalCode = "31-348",
+                                    Street = "Michała Bobrzyńskiego 46"
+                                });
+                        });
+
+                    b.Navigation("Adress")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Data.Entities.OrganizationEntity", b =>
+                {
+                    b.Navigation("Contacts");
                 });
 #pragma warning restore 612, 618
         }
