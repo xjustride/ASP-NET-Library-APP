@@ -4,37 +4,39 @@
 *@
 @{
 }
-<h3>Dodaj kontakt</h3>
+<h1>Dodawanie kontaktu</h1>
 <form asp-controller="Contact" asp-action="Create" method="post">
-    <div class ="mb-3">
-        <label asp-for="Name"></label>
-        <input asp-for="Name" /> <br />
-        <span class="text-danger" asp-validation-for="Name"></span>
+    <div class="mb-3">
+        <label asp-for="Name">Imię</label>
+        <input class="form-control" asp-for="Name" />
+        <span asp-validation-for="Name" class="text-danger"></span>
     </div>
-    <div class ="mb-3">
-        <label asp-for="Email"></label>
-        <input asp-for="Email" /> <br />
-        <span class="text-danger" asp-validation-for="Email"></span>
+    <div class="mb-3">
+        <label asp-for="Email">Email</label>
+        <input class="form-control" asp-for="Email" />
+        <span asp-validation-for="Email" class="text-danger"></span>
     </div>
-    <div class ="mb-3">
-        <label asp-for="Phone"></label>
-        <input asp-for="Phone" /> <br />
-        <span class="text-danger" asp-validation-for="Phone"></span>
+    <div class="mb-3">
+        <label asp-for="Phone">Telefon</label>
+        <input class="form-control" asp-for="Phone" />
+        <span asp-validation-for="Phone" class="text-danger"></span>
     </div>
-    <div class ="mb-3">
-        <label asp-for="Birth"></label>
-        <input asp-for="Birth" /> <br />
-        <span class="text-danger" asp-validation-for="Birth"></span>
+    <div class="mb-3">
+        <label asp-for="Birth">Data urodzenia</label>
+        <input class="form-control" asp-for="Birth" />
+        <span asp-validation-for="Birth" class="text-danger"></span>
     </div>
-    <div>
-        <label asp-for="Priority">Kategoria</label>
-        <div>
-            <span asp-validation-for="Priority" class="text-danger"></span>
-        </div>
+    <div class="mb-3">
+        <label asp-for="Priority"></label>
+        <span asp-validation-for="Priority" class="text-danger"></span>
         <select class="form-control" asp-for="Priority" asp-items="@Html.GetEnumSelectList<Priority>()"></select>
     </div>
     <div class="mb-3">
-        <button class="btn btn-primary"type="submit">Utwórz</button>
-        <button class="btn btn-secondary" type="reset">Wyczyść</button>
+        <label asp-for="OrganizationId">Organizacja</label>
+        <select class="form-control" asp-for="OrganizationId" asp-items="@Model.Organizations" ></select>
+    </div>
+    <div class="mb-3">
+        <button class="btn btn-primary" type="submit">Utwórz</button>
+        <a class="btn btn-primary" asp-controler="Contact" style="float: right;" asp-action="Index">Lista kontaktów</a>
     </div>
 </form>

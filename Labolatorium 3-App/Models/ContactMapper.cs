@@ -15,6 +15,7 @@ namespace Labolatorium_3_App.Models
                 Name = model.Name,
                 Email = model.Email,
                 Phone = model.Phone,
+                OrgaznizationId = model.OrganizationId,
                 Priority = (int)model.Priority,
             };
         }
@@ -27,6 +28,7 @@ namespace Labolatorium_3_App.Models
                 Name = entity.Name,
                 Email = entity.Email,
                 Phone = entity.Phone,
+                OrganizationId = entity.OrgaznizationId,
                 Priority = (Priority)entity.Priority,
             };
         }

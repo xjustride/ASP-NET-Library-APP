@@ -44,7 +44,7 @@ namespace Data.Migrations
 
                     b.HasKey("ContactId");
 
-                    b.ToTable("contacts");
+                    b.ToTable("contacts", (string)null);
 
                     b.HasData(
                         new

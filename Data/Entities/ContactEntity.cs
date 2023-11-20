@@ -15,7 +15,8 @@ namespace Data.Entities
     public class ContactEntity
     {
         [Key]
-        [Column("id")]
+        [Column("Id")]
+        public int Id { get; set; }
         public int ContactId { get; set; }
         [Required]
         [MaxLength(50)]
@@ -25,7 +26,8 @@ namespace Data.Entities
         public string? Phone { get; set; }
         public DateTime? Birth { get; set; }
         public int Priority { get; set; }
-
+        public OrganizationEntity Organization { get; set; }
+        public int? OrgaznizationId { get; set; }
 
     }
 }

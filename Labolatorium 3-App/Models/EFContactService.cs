@@ -37,6 +37,11 @@ namespace Labolatorium_3_App.Models
             return __ctx.Contacts.Select(e => ContactMapper.FromEntity(e)).ToList();
         }
 
+        public List<OrganizationEntity> FindAllOrganizations()
+        {
+            return __ctx.Organizations.ToList();
+        }
+
         public Contact? FindById(int id)
         {
             ContactEntity? find = __ctx.Contacts.Find(id);

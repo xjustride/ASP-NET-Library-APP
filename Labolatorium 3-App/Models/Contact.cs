@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 
 namespace Labolatorium_3_App.Models
 {
-    public class Contact 
+    public class Contact
     {
         [HiddenInput]
         public int id { get; set; }
@@ -16,14 +18,16 @@ namespace Labolatorium_3_App.Models
         [Display(Name = "Adres e-mail")]
         public string Email { get; set; }
         [Display(Name = "Numer telefonu")]
-        public string? Phone{ get; set; } //? pole opcjonalne (?) nullable
+        public string? Phone { get; set; } //? pole opcjonalne (?) nullable
         [Display(Name = "Data urodzenia")]
-        public DateTime? Birth {get; set; } //? pole opcjonalne (?) nullable
+        public DateTime? Birth { get; set; } //? pole opcjonalne (?) nullable
         [Display(Name = "Priorytet")]
         public Priority Priority { get; set; }
         [HiddenInput]
-        public DateTime Created {  get; set; }  
-
+        public DateTime Created { get; set; }
+        public int? OrganizationId {get; set;}
+        [ValidateNever]
+        public List<SelectListItem> Organizations { get; set; }
         
     }
 }
