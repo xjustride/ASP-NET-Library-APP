@@ -34,8 +34,10 @@ namespace Data
             );
 
             modelBuilder.Entity<BookEntity>().HasData(
-                new BookEntity() { BookId = 1, Title = "Jebanie", Page_no = "1500", ISBN = "12312534", PublicationDate = new DateTime(2000, 10, 10), PublishingHouse = "czarnuszki", Priority = 1 },
-                new BookEntity() { BookId = 2, Title = "Some Other Book", Page_no = "200", ISBN = "567890", PublicationDate = new DateTime(2005, 5, 5), PublishingHouse = "murzynki", Priority = 2 }
+                new BookEntity() { BookId = 1, Title = "Tajemnice Puszczy Białowieskiej", Page_no = "300", ISBN = "9788374958746", PublicationDate = new DateTime(2010, 8, 15), PublishingHouse = "Leśne Opowieści", Priority = 1 },
+                new BookEntity() { BookId = 2, Title = "Labirynt Miłości", Page_no = "420", ISBN = "9788323987654", PublicationDate = new DateTime(2018, 3, 22), PublishingHouse = "Romanski Świat", Priority = 2 },
+                new BookEntity() { BookId = 3, Title = "Intrygi Dworu Krakowskiego", Page_no = "250", ISBN = "9788901234567", PublicationDate = new DateTime(2002, 11, 7), PublishingHouse = "Krakowskie Wydawnictwo", Priority = 3 }
+
             );
 
 
