@@ -16,15 +16,17 @@ namespace Data.Entities
         public string Title { get; set; }
 
         [Required]
-        public string Page_no { get; set; }
+        public string Page_No { get; set; }
 
-        [MaxLength(20)] // Ustaw maksymalną długość dla ISBN
+        [Required]
+        [MinLength(13)]
+        [MaxLength(13)] // Ustaw maksymalną długość dla ISBN
         public string ISBN { get; set; }
 
         public DateTime? PublicationDate { get; set; }
-
+        [Required]
         public string PublishingHouse { get; set; }
-
+        [Required]
         public int Priority { get; set; }
     }
 }

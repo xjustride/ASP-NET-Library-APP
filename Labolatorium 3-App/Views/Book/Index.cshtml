@@ -12,10 +12,10 @@
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model[0].title)
+                @Html.DisplayNameFor(model => model[0].Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model[0].publishinghouse)
+                @Html.DisplayNameFor(model => model[0].PublishingHouse)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model[0].BookStatus)
@@ -28,10 +28,10 @@
         {
             <tr>
                 <td>
-                    @item.title
+                    @item.Title
                 </td>
                 <td>
-                    @item.publishinghouse
+                    @item.PublishingHouse
                 </td>
                 <td>
                     @item.BookStatus.GetDisplayName()

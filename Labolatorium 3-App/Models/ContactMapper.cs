@@ -19,6 +19,24 @@ namespace Labolatorium_3_App.Models
                 Priority = (int)model.Priority,
             };
         }
+
+        public static BookEntity ToEntity(Book model) 
+        {
+            return new BookEntity
+            {
+                BookId = model.id,
+                Title = model.Title,
+                Page_No = model.Page_No,
+                ISBN = model.ISBN,
+                PublicationDate = model.PublicationDate,
+                PublishingHouse = model.PublishingHouse,
+            };
+        }
+
+
+
+
+
         public static Contact FromEntity(ContactEntity entity) 
         {
             return new Contact()
@@ -31,6 +49,18 @@ namespace Labolatorium_3_App.Models
                 OrganizationId = entity.OrgaznizationId,
                 Priority = (Priority)entity.Priority,
             };
+            
+
+        }
+
+        public static Contact FromEntity(BookEntity entity)
+        {
+            return new Contact()
+            {
+                
+            };
+
+
         }
     }
 }

@@ -4,9 +4,9 @@
 *@
 @{
 }
-<h4 class="text-danger"> Czy na pewno chcesz usunąć książkę o nazwie @Model.title</h4>
+<h4 class="text-danger"> Czy na pewno chcesz usunąć książkę o nazwie @Model.Title</h4>
 <form asp-controller="Book" asp-action="Delete">
-    <input asp-for="title" />
+    <input asp-for="Title" />
     <button type="submit">Tak</button>
     <a class="btn btn-primary" asp-action="Index">Nie</a>
 </form>
