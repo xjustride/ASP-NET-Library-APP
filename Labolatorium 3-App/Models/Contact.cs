@@ -32,6 +32,7 @@ namespace Labolatorium_3_App.Models
         public Priority Priority { get; set; }
 
         public int? OrganizationId { get; set; }
+        public string? OrganizationName { get; set; }
 
         [ValidateNever]
         public List<SelectListItem> Organizations { get; set; }

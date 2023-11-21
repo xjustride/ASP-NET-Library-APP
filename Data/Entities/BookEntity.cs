@@ -28,5 +28,7 @@ namespace Data.Entities
         public string PublishingHouse { get; set; }
         [Required]
         public int Priority { get; set; }
+        public int LiteraryGenreId { get; set; }
+        public LiteraturyGenreEntity LiteraryGenre { get; set; }
     }
 }

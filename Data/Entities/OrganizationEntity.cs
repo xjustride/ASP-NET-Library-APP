@@ -15,7 +15,6 @@ namespace Data.Entities
         public string Name { get; set; }
         public string Description { get; set; }
         public Address Adress { get; set; }
-
         public ISet<ContactEntity> Contacts { get; set; }
     }
 }

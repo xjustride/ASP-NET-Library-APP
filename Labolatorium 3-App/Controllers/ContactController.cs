@@ -121,6 +121,11 @@ namespace Labolatorium_3_App.Models
             var organization = _contactService.FindAllOrganizations()
                 .FirstOrDefault(eo => eo.Id == contact.OrganizationId);
 
+            contact.OrganizationName = organization?.Name; // Ustaw nazwę organizacji
+
+
+
+
 
             return View(contact);
         }
