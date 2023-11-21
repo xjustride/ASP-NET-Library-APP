@@ -1,4 +1,5 @@
-﻿using Labolatorium_3_App.Models;
+﻿using Data.Entities;
+using Labolatorium_3_App.Models;
 
 public interface IBookService
 {
@@ -7,4 +8,5 @@ public interface IBookService
     void Update(Book book);
     List<Book> FindAll();
     Book? FindById(int id);
+    List<LiteraturyGenreEntity> FindAllOrganizations();
 }

@@ -1,5 +1,7 @@
 using Data;
 using Labolatorium_3_App.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Labolatorium_3_App
 {
@@ -8,6 +10,7 @@ namespace Labolatorium_3_App
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            var connectionString = builder.Configuration.GetConnectionString("AppDbContextConnection") ?? throw new InvalidOperationException("Connection string 'AppDbContextConnection' not found.");
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
@@ -16,6 +19,8 @@ namespace Labolatorium_3_App
             builder.Services.AddSingleton<IDateTimeProvider, CurrentDateTimeProvider>();
            // builder.Services.AddSingleton<IContactService, MemoryContactService>();
             builder.Services.AddDbContext<AppDbContext>();
+
+            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<AppDbContext>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
