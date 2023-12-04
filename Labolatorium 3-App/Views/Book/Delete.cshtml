@@ -1,12 +1,40 @@
-﻿@model Book 
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-<h4 class="text-danger"> Czy na pewno chcesz usunąć książkę o nazwie @Model.Title</h4>
-<form asp-controller="Book" asp-action="Delete">
-    <input asp-for="Title" />
-    <button type="submit">Tak</button>
-    <a class="btn btn-primary" asp-action="Index">Nie</a>
-</form>
+﻿@model Book
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f8f9fa; /* Kolor tła strony */
+        color: #495057; /* Kolor tekstu */
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    h4 {
+        color: #dc3545; /* Kolor czerwony dla komunikatu o usuwaniu */
+    }
+
+    button[type="submit"] {
+        background-color: #dc3545; /* Kolor tła przycisku "Tak" */
+        color: #ffffff; /* Kolor tekstu na przycisku "Tak" */
+    }
+
+    .btn-primary {
+        background-color: #007bff; /* Kolor tła przycisku "Nie" */
+        color: #ffffff; /* Kolor tekstu na przycisku "Nie" */
+    }
+</style>
+
+<div class="container mt-5">
+    <h4 class="text-danger">Czy na pewno chcesz usunąć książkę o nazwie @Model.Title?</h4>
+    <form asp-controller="Book" asp-action="Delete">
+        <div class="mb-3">
+            <label asp-for="Title">Tytuł</label>
+            <input class="form-control" asp-for="Title" readonly />
+        </div>
+        <button class="btn btn-danger" type="submit">Tak</button>
+        <a class="btn btn-primary" asp-action="Index">Nie</a>
+    </form>
+</div>

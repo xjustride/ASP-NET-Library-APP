@@ -5,6 +5,30 @@
       "PackagePath": "staticwebassets\\Labolatorium 3-App.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\Img\\AnimatedBackground.svg",
+      "PackagePath": "staticwebassets\\Img\\AnimatedBackground.svg"
+    },
+    {
+      "Id": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\Img\\Cloudy.svg",
+      "PackagePath": "staticwebassets\\Img\\Cloudy.svg"
+    },
+    {
+      "Id": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\Img\\Wave.svg",
+      "PackagePath": "staticwebassets\\Img\\Wave.svg"
+    },
+    {
+      "Id": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\Img\\hp1.png",
+      "PackagePath": "staticwebassets\\Img\\hp1.png"
+    },
+    {
+      "Id": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\Img\\hp2.png",
+      "PackagePath": "staticwebassets\\Img\\hp2.png"
+    },
+    {
+      "Id": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\Img\\hp3.png",
+      "PackagePath": "staticwebassets\\Img\\hp3.png"
+    },
+    {
       "Id": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

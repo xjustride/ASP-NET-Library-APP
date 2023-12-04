@@ -52,22 +52,26 @@ namespace Labolatorium_3_App.Models
 
         }
 
+        public PagingList<Contact> FindPage(int page, int size)
+        {
+            int totalCount = _context.Contacts.Count();
+            List<Contact> contacts = _context.Contacts
+             .Skip((page - 1) * size)
+             .Take(size)
+             .Select(ContactMapper.FromEntity) // Użyj mappera do przekształcenia
+             .ToList();
+            return PagingList<Contact>.Create(contacts, totalCount, page, size);
+
+        }
+
+
+
+
         public void Update(Contact contact)
         {
-            var existingEntity = _context.Contacts.Find(contact.Id);
+            _context.Contacts.Update(ContactMapper.ToEntity(contact));
 
-            if (existingEntity != null)
-            {
-                var updatedEntity = ContactMapper.ToEntity(contact);
-
-                _context.Entry(existingEntity).CurrentValues.SetValues(updatedEntity);
-
-                _context.SaveChanges();
-            }
-            else
-            {
-                throw new KeyNotFoundException("Contact not found");
-            }
+            _context.SaveChanges();
         }
 
     }

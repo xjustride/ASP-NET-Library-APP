@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Data.Migrations
 {
     /// <inheritdoc />
-    public partial class dupa : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -53,17 +53,19 @@ namespace Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "generes",
+                name: "Libraries",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Genre = table.Column<string>(type: "TEXT", nullable: false),
-                    Type = table.Column<string>(type: "TEXT", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    Description = table.Column<string>(type: "TEXT", nullable: false),
+                    LibraryAdress_City = table.Column<string>(type: "TEXT", nullable: true),
+                    LibraryAdress_Street = table.Column<string>(type: "TEXT", nullable: true),
+                    LibraryAdress_PostalCode = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_generes", x => x.Id);
+                    table.PrimaryKey("PK_Libraries", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -193,23 +195,25 @@ namespace Data.Migrations
                 name: "books",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "INTEGER", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Title = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
-                    Page_No = table.Column<string>(type: "TEXT", nullable: false),
-                    ISBN = table.Column<string>(type: "TEXT", maxLength: 13, nullable: false),
-                    PublicationDate = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    Created = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Title = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
+                    Page_No = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
+                    ISBN = table.Column<string>(type: "TEXT", nullable: false),
+                    Author = table.Column<string>(type: "TEXT", nullable: true),
+                    publication_date = table.Column<DateTime>(type: "TEXT", nullable: true),
                     PublishingHouse = table.Column<string>(type: "TEXT", nullable: false),
                     Priority = table.Column<int>(type: "INTEGER", nullable: false),
-                    LiteraryGenreId = table.Column<int>(type: "INTEGER", nullable: false)
+                    LibraryId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_books", x => x.id);
+                    table.PrimaryKey("PK_books", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_books_generes_LiteraryGenreId",
-                        column: x => x.LiteraryGenreId,
-                        principalTable: "generes",
+                        name: "FK_books_Libraries_LibraryId",
+                        column: x => x.LibraryId,
+                        principalTable: "Libraries",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -226,7 +230,7 @@ namespace Data.Migrations
                     Phone = table.Column<string>(type: "TEXT", maxLength: 12, nullable: true),
                     birth_date = table.Column<DateTime>(type: "TEXT", nullable: true),
                     Priority = table.Column<int>(type: "INTEGER", nullable: false),
-                    OrganizationId = table.Column<int>(type: "INTEGER", nullable: false)
+                    OrganizationId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -235,29 +239,32 @@ namespace Data.Migrations
                         name: "FK_contacts_organizations_OrganizationId",
                         column: x => x.OrganizationId,
                         principalTable: "organizations",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "83b650ce-91e9-4187-9350-26e3b74e4046", "83b650ce-91e9-4187-9350-26e3b74e4046", "admin", "ADMIN" });
+                values: new object[] { "6c0fe714-3546-4653-9939-05b5158ee24f", "6c0fe714-3546-4653-9939-05b5158ee24f", "admin", "ADMIN" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "4cf4b664-2e41-48de-a2d1-a267bfa01554", 0, "f71cfc09-404c-4b66-9ba0-74d61572f9e4", "kacper@wsei.pl", true, false, null, null, null, "AQAAAAEAACcQAAAAEBgjkhejOPBo4PrQEejuoBLln+p/qszNqlgAnOXi5JURagMPTNbi1XUH27C+VuJJGQ==", null, false, "76cdd81f-983c-432e-a7b8-d452782a835d", false, "kacper" });
-
-            migrationBuilder.InsertData(
-                table: "generes",
-                columns: new[] { "Id", "Genre", "Type" },
                 values: new object[,]
                 {
-                    { 1, "Powieść", "Audiobook" },
-                    { 2, "Kryminał", "Ebook" },
-                    { 3, "Przygodowa", "Poradnik" },
-                    { 4, "Horror", "Książka" }
+                    { "328b97cb-1da8-4fa6-a37c-a6ec0338528c", 0, "6c3469f7-7a62-4fe6-8510-ee275072e1b0", "kacper@wsei.pl", true, false, null, "KACPER@WSEI.PL", "KACPER@WSEI.PL", "AQAAAAEAACcQAAAAEGmitrkPzvyZvfoKflbvy8i1HZUFGYFusa5hbynDAqhA8kTxdERTbTWdJ/EZ95XHBg==", null, false, "72607512-a650-4557-b67a-e0beee76a8ac", false, "kacper@wsei.pl" },
+                    { "908cfd00-6c1a-41ae-97b9-29f702affb14", 0, "0dde913d-90cf-44ec-928d-26e707b2ffbb", "adminek@wp.pl", true, false, null, null, null, "AQAAAAEAACcQAAAAEIpR+/N5Deq6/SEqlqP3K8BtjCOk14EFLPQeQT9yCcVqyaMACNJG8rgh79zCeiNFKg==", null, false, "597ff51d-64ec-49a7-8b3d-c6d05d5811e2", false, "adminek@wp.pl" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Libraries",
+                columns: new[] { "Id", "LibraryAdress_City", "LibraryAdress_PostalCode", "LibraryAdress_Street", "Description", "Name" },
+                values: new object[,]
+                {
+                    { 1, null, null, null, "Główna biblioteka na terenie Wyższej Szkoły Ekonomii i Informatyki", "Biblioteka Główna WSEI" },
+                    { 2, null, null, null, "Biblioteka publiczna przy Polsko-Japońskiej Akademii Technik Komputerowych", "Biblioteka Publiczna PJTAK" },
+                    { 3, null, null, null, "Biblioteka korporacyjna ABB", "Biblioteka ABB" },
+                    { 4, null, null, null, "Biblioteka szkolna przy Technikum Informatycznym w Poznaniu", "Biblioteka Technikum Informatycznego w Poznaniu" }
                 });
 
             migrationBuilder.InsertData(
@@ -274,15 +281,20 @@ namespace Data.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "83b650ce-91e9-4187-9350-26e3b74e4046", "4cf4b664-2e41-48de-a2d1-a267bfa01554" });
+                values: new object[] { "6c0fe714-3546-4653-9939-05b5158ee24f", "328b97cb-1da8-4fa6-a37c-a6ec0338528c" });
+
+            migrationBuilder.InsertData(
+                table: "books",
+                columns: new[] { "Id", "Author", "Created", "ISBN", "LibraryId", "Page_No", "Priority", "publication_date", "PublishingHouse", "Title" },
+                values: new object[] { 1, "Jan Brzechwa", new DateTime(2023, 12, 4, 1, 25, 5, 6, DateTimeKind.Local).AddTicks(3619), "12345678", 1, "200", 1, new DateTime(2022, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Wydawnictwo ABC", "Przykładowa Książka 1" });
 
             migrationBuilder.InsertData(
                 table: "contacts",
                 columns: new[] { "Id", "birth_date", "Created", "Email", "Name", "OrganizationId", "Phone", "Priority" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2000, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 11, 21, 14, 13, 26, 719, DateTimeKind.Local).AddTicks(8665), "adam@wsei.edu.pl", "Adam", 1, "127813268163", 1 },
-                    { 2, new DateTime(1999, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 11, 21, 14, 13, 26, 719, DateTimeKind.Local).AddTicks(8714), "ewa@wsei.edu.pl", "Ewa", 3, "293443823478", 2 }
+                    { 1, new DateTime(2000, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 12, 4, 1, 25, 5, 6, DateTimeKind.Local).AddTicks(3781), "adam@wsei.edu.pl", "Adam", 1, "127813268163", 1 },
+                    { 2, new DateTime(1999, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2023, 12, 4, 1, 25, 5, 6, DateTimeKind.Local).AddTicks(3788), "ewa@wsei.edu.pl", "Ewa", 3, "293443823478", 2 }
                 });
 
             migrationBuilder.CreateIndex(
@@ -323,9 +335,9 @@ namespace Data.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_books_LiteraryGenreId",
+                name: "IX_books_LibraryId",
                 table: "books",
-                column: "LiteraryGenreId");
+                column: "LibraryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_contacts_OrganizationId",
@@ -364,7 +376,7 @@ namespace Data.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "generes");
+                name: "Libraries");
 
             migrationBuilder.DropTable(
                 name: "organizations");

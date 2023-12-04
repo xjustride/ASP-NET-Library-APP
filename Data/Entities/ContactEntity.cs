@@ -1,4 +1,7 @@
-﻿using System;
+﻿
+
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
@@ -35,6 +38,6 @@ namespace Data.Entities
 
         public int Priority { get; set; }
         public OrganizationEntity Ogranization { get; set; }
-        public int OrganizationId { get; set; }
+        public int? OrganizationId { get; set; }
     }
 }

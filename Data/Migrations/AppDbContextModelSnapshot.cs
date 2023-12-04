@@ -19,28 +19,34 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Data.Entities.BookEntity", b =>
                 {
-                    b.Property<int>("BookId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("id");
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Author")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ISBN")
                         .IsRequired()
-                        .HasMaxLength(13)
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("LiteraryGenreId")
+                    b.Property<int>("LibraryId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Page_No")
                         .IsRequired()
+                        .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Priority")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("PublicationDate")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasColumnName("publication_date");
 
                     b.Property<string>("PublishingHouse")
                         .IsRequired()
@@ -48,14 +54,29 @@ namespace Data.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(100)
+                        .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
-                    b.HasKey("BookId");
+                    b.HasKey("Id");
 
-                    b.HasIndex("LiteraryGenreId");
+                    b.HasIndex("LibraryId");
 
                     b.ToTable("books");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Author = "Jan Brzechwa",
+                            Created = new DateTime(2023, 12, 4, 1, 25, 5, 6, DateTimeKind.Local).AddTicks(3619),
+                            ISBN = "12345678",
+                            LibraryId = 1,
+                            Page_No = "200",
+                            Priority = 1,
+                            PublicationDate = new DateTime(2022, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PublishingHouse = "Wydawnictwo ABC",
+                            Title = "Przykładowa Książka 1"
+                        });
                 });
 
             modelBuilder.Entity("Data.Entities.ContactEntity", b =>
@@ -81,7 +102,7 @@ namespace Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("OrganizationId")
+                    b.Property<int?>("OrganizationId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Phone")
@@ -102,7 +123,7 @@ namespace Data.Migrations
                         {
                             Id = 1,
                             Birth = new DateTime(2000, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Created = new DateTime(2023, 11, 21, 14, 13, 26, 719, DateTimeKind.Local).AddTicks(8665),
+                            Created = new DateTime(2023, 12, 4, 1, 25, 5, 6, DateTimeKind.Local).AddTicks(3781),
                             Email = "adam@wsei.edu.pl",
                             Name = "Adam",
                             OrganizationId = 1,
@@ -113,57 +134,12 @@ namespace Data.Migrations
                         {
                             Id = 2,
                             Birth = new DateTime(1999, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Created = new DateTime(2023, 11, 21, 14, 13, 26, 719, DateTimeKind.Local).AddTicks(8714),
+                            Created = new DateTime(2023, 12, 4, 1, 25, 5, 6, DateTimeKind.Local).AddTicks(3788),
                             Email = "ewa@wsei.edu.pl",
                             Name = "Ewa",
                             OrganizationId = 3,
                             Phone = "293443823478",
                             Priority = 2
-                        });
-                });
-
-            modelBuilder.Entity("Data.Entities.LiteraturyGenreEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Genre")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Type")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("generes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Genre = "Powieść",
-                            Type = "Audiobook"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Genre = "Kryminał",
-                            Type = "Ebook"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Genre = "Przygodowa",
-                            Type = "Poradnik"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Genre = "Horror",
-                            Type = "Książka"
                         });
                 });
 
@@ -212,6 +188,51 @@ namespace Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("LibraryEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Libraries");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Główna biblioteka na terenie Wyższej Szkoły Ekonomii i Informatyki",
+                            Name = "Biblioteka Główna WSEI"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "Biblioteka publiczna przy Polsko-Japońskiej Akademii Technik Komputerowych",
+                            Name = "Biblioteka Publiczna PJTAK"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "Biblioteka korporacyjna ABB",
+                            Name = "Biblioteka ABB"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Description = "Biblioteka szkolna przy Technikum Informatycznym w Poznaniu",
+                            Name = "Biblioteka Technikum Informatycznego w Poznaniu"
+                        });
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -240,8 +261,8 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "83b650ce-91e9-4187-9350-26e3b74e4046",
-                            ConcurrencyStamp = "83b650ce-91e9-4187-9350-26e3b74e4046",
+                            Id = "6c0fe714-3546-4653-9939-05b5158ee24f",
+                            ConcurrencyStamp = "6c0fe714-3546-4653-9939-05b5158ee24f",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -336,17 +357,33 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "4cf4b664-2e41-48de-a2d1-a267bfa01554",
+                            Id = "328b97cb-1da8-4fa6-a37c-a6ec0338528c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f71cfc09-404c-4b66-9ba0-74d61572f9e4",
+                            ConcurrencyStamp = "6c3469f7-7a62-4fe6-8510-ee275072e1b0",
                             Email = "kacper@wsei.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAEBgjkhejOPBo4PrQEejuoBLln+p/qszNqlgAnOXi5JURagMPTNbi1XUH27C+VuJJGQ==",
+                            NormalizedEmail = "KACPER@WSEI.PL",
+                            NormalizedUserName = "KACPER@WSEI.PL",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGmitrkPzvyZvfoKflbvy8i1HZUFGYFusa5hbynDAqhA8kTxdERTbTWdJ/EZ95XHBg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "76cdd81f-983c-432e-a7b8-d452782a835d",
+                            SecurityStamp = "72607512-a650-4557-b67a-e0beee76a8ac",
                             TwoFactorEnabled = false,
-                            UserName = "kacper"
+                            UserName = "kacper@wsei.pl"
+                        },
+                        new
+                        {
+                            Id = "908cfd00-6c1a-41ae-97b9-29f702affb14",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "0dde913d-90cf-44ec-928d-26e707b2ffbb",
+                            Email = "adminek@wp.pl",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            PasswordHash = "AQAAAAEAACcQAAAAEIpR+/N5Deq6/SEqlqP3K8BtjCOk14EFLPQeQT9yCcVqyaMACNJG8rgh79zCeiNFKg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "597ff51d-64ec-49a7-8b3d-c6d05d5811e2",
+                            TwoFactorEnabled = false,
+                            UserName = "adminek@wp.pl"
                         });
                 });
 
@@ -412,8 +449,8 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "4cf4b664-2e41-48de-a2d1-a267bfa01554",
-                            RoleId = "83b650ce-91e9-4187-9350-26e3b74e4046"
+                            UserId = "328b97cb-1da8-4fa6-a37c-a6ec0338528c",
+                            RoleId = "6c0fe714-3546-4653-9939-05b5158ee24f"
                         });
                 });
 
@@ -438,22 +475,20 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Data.Entities.BookEntity", b =>
                 {
-                    b.HasOne("Data.Entities.LiteraturyGenreEntity", "LiteraryGenre")
+                    b.HasOne("LibraryEntity", "Library")
                         .WithMany("Books")
-                        .HasForeignKey("LiteraryGenreId")
+                        .HasForeignKey("LibraryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("LiteraryGenre");
+                    b.Navigation("Library");
                 });
 
             modelBuilder.Entity("Data.Entities.ContactEntity", b =>
                 {
                     b.HasOne("Data.Entities.OrganizationEntity", "Ogranization")
                         .WithMany("Contacts")
-                        .HasForeignKey("OrganizationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("OrganizationId");
 
                     b.Navigation("Ogranization");
                 });
@@ -516,6 +551,52 @@ namespace Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("LibraryEntity", b =>
+                {
+                    b.OwnsOne("Data.Models.LibraryAddress", "LibraryAdress", b1 =>
+                        {
+                            b1.Property<int>("LibraryEntityId")
+                                .HasColumnType("INTEGER");
+
+                            b1.Property<string>("City")
+                                .HasColumnType("TEXT");
+
+                            b1.Property<string>("PostalCode")
+                                .HasColumnType("TEXT");
+
+                            b1.Property<string>("Street")
+                                .HasColumnType("TEXT");
+
+                            b1.HasKey("LibraryEntityId");
+
+                            b1.ToTable("Libraries");
+
+                            b1.WithOwner()
+                                .HasForeignKey("LibraryEntityId");
+
+                            b1.HasData(
+                                new
+                                {
+                                    LibraryEntityId = 1
+                                },
+                                new
+                                {
+                                    LibraryEntityId = 2
+                                },
+                                new
+                                {
+                                    LibraryEntityId = 3
+                                },
+                                new
+                                {
+                                    LibraryEntityId = 4
+                                });
+                        });
+
+                    b.Navigation("LibraryAdress")
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -567,14 +648,14 @@ namespace Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Data.Entities.LiteraturyGenreEntity", b =>
-                {
-                    b.Navigation("Books");
-                });
-
             modelBuilder.Entity("Data.Entities.OrganizationEntity", b =>
                 {
                     b.Navigation("Contacts");
+                });
+
+            modelBuilder.Entity("LibraryEntity", b =>
+                {
+                    b.Navigation("Books");
                 });
 #pragma warning restore 612, 618
         }

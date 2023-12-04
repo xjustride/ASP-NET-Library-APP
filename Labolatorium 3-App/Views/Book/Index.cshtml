@@ -1,10 +1,48 @@
 ﻿@model List<Book>
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-<h4>Lista książek</h4>
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f8f9fa; /* Kolor tła strony */
+        color: #495057; /* Kolor tekstu */
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        color: #007bff; /* Kolor nagłówka */
+    }
+
+    .btn-primary {
+        background-color: #007bff; /* Kolor tła przycisku "Dodaj książkę" */
+        color: #ffffff; /* Kolor tekstu na przycisku "Dodaj książkę" */
+    }
+
+    .table {
+        background-color: #ffffff; /* Kolor tła tabeli */
+    }
+
+    th {
+        background-color: #007bff; /* Kolor tła nagłówków tabeli */
+        color: black; /* Kolor tekstu w nagłówkach tabeli */
+    }
+
+    td {
+        background-color: #ffffff; /* Kolor tła komórek tabeli */
+    }
+
+    .btn-outline-secondary,
+    .btn-outline-info,
+    .btn-outline-danger {
+        color: #007bff; /* Kolor tekstu na przyciskach z obramowaniem */
+        border-color: #007bff; /* Kolor obramowania przycisków z obramowaniem */
+    }
+</style>
+
+<h1>Lista książek</h1>
 <a class="btn btn-primary" asp-controller="Book" asp-action="Create">Dodaj książkę</a>
 
 @if (Model.Count > 0)
@@ -18,31 +56,24 @@
                 @Html.DisplayNameFor(model => model[0].PublishingHouse)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model[0].BookStatus)
-            </th>
-            <th>
                 Akcje
             </th>
         </tr>
-        @foreach (var item in @Model)
+        @foreach (var book in Model)
         {
             <tr>
+                <td>@book.Title</td>
+                <td>@book.PublishingHouse</td>
                 <td>
-                    @item.Title
+                    <a class="btn btn-outline-secondary" asp-controller="Book" asp-action="Update" asp-route-id="@book.id"> Edycja</a>
+                    <a class="btn btn-outline-info" asp-controller="Book" asp-action="Details" asp-route-id="@book.id"> Szczegóły</a>
+                    <a class="btn btn-outline-danger" asp-controller="Book" asp-action="Delete" asp-route-id="@book.id"> Usuń</a>
                 </td>
-                <td>
-                    @item.PublishingHouse
-                </td>
-                <td>
-                    @item.BookStatus.GetDisplayName()
-                </td>
-                <td>
-                    <a class="btn btn-outline-secondary" asp-controller="Book" asp-action="Update" asp-route-id="@item.id"> Edycja</a>
-                    <a class="btn btn-outline-info" asp-controller="Book" asp-action="Details" asp-route-id="@item.id"> Szczegóły</a>
-                    <a class="btn btn-outline-danger" asp-controller="Book" asp-action="Delete" asp-route-id="@item.id"> Usuń</a>
-                </td>
-
             </tr>
         }
     </table>
+}
+else
+{
+    <p>Brak książek do wyświetlenia.</p>
 }

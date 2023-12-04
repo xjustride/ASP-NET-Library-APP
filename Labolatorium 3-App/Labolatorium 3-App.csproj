@@ -22,4 +22,14 @@
     <ProjectReference Include="..\Data\Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Identity\Data" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Img\hp1.png" />
+    <None Include="wwwroot\Img\hp2.png" />
+    <None Include="wwwroot\Img\hp3.png" />
+  </ItemGroup>
+
 </Project>

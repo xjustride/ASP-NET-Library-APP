@@ -5,6 +5,8 @@
 @{
 }
 
+
+
 <h1>Dodaj kontakt</h1>
 <form asp-controller="Contact" asp-action="Create" method="post"> 
    <div class="mb-3">
@@ -43,6 +45,7 @@
         <label asp-for="OrganizationId">Organizacja</label>
         <select class="form-control" asp-for="OrganizationId" asp-items="@Model.Organizations"></select>
     </div>
+
 
     <div class="mb-3">
         <input class="btn btn-primary" type="submit" value="Utwórz"/>

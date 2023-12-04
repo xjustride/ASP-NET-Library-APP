@@ -1,47 +1,104 @@
 ﻿@model Book
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+
 @{
 }
-<h4>Dodaj książeczkę</h4>
-<form asp-controller="Book" asp-action="Create" method="post">
-    <div class="mb-3">
-        <label asp-for="Title"></label>
-        <input asp-for="Title" /> <br />
-        <span class="text-danger" asp-validation-for="Title"></span>
-    </div>
-    <div class="mb-3">
-        <label asp-for="Page_No"></label>
-        <input asp-for="Page_No" /> <br />
-        <span class="text-danger" asp-validation-for="Page_No"></span>
-    </div>
-    <div class="mb-3">
-        <label asp-for="ISBN"></label>
-        <input asp-for="ISBN" /> <br />
-        <span class="text-danger" asp-validation-for="ISBN"></span>
-    </div>
-    <div class="mb-3">
-        <label asp-for="PublicationDate"></label>
-        <input asp-for="PublicationDate" /> <br />
-        <span class="text-danger" asp-validation-for="PublicationDate"></span>
-    </div>
-    <div class="mb-3">
-        <label asp-for="PublishingHouse"></label>
-        <input asp-for="PublishingHouse" /> <br />
-        <span class="text-danger" asp-validation-for="PublishingHouse"></span>
-    </div>
-    <div>
-        <label asp-for="BookStatus">Status dostępności</label>
-        <div>
-            <span asp-validation-for="BookStatus" class="text-danger"></span>
-        </div>
-        <select class="form-control" asp-for="BookStatus" asp-items="@Html.GetEnumSelectList<BookStatus>()"></select>
-    </div>
-    <br>
-    <div class="mb-3">
-        <button class="btn btn-primary" type="submit">Utwórz</button>
-        <button class="btn btn-secondary" type="reset">Wyczyść</button>
-    </div>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<style>
+    body {
+        color: #495057; /* Kolor tekstu */
+    }
 
-</form>
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        color: #007bff; /* Kolor nagłówka */
+    }
+
+    .form-label {
+        color: #17a2b8; /* Kolor etykiet formularza */
+    }
+    
+    .form-control {
+        background-color: #ffffff; /* Kolor tła pola formularza */
+        color: #495057; /* Kolor tekstu w polu formularza */
+    }
+
+    .btn-success {
+        background-color: #28a745; /* Kolor tła przycisku "Utwórz" */
+        color: #ffffff; /* Kolor tekstu na przycisku "Utwórz" */
+    }
+
+    .btn-danger {
+        background-color: #dc3545; /* Kolor tła przycisku "Wyczyść" */
+        color: #ffffff; /* Kolor tekstu na przycisku "Wyczyść" */
+    }
+</style>
+
+<style>
+    body {
+        background-image: url('/Img/Cloudy.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+
+<div class="container mt-5">
+    <h1>Dodaj książkę</h1>
+    <form asp-controller="Book" asp-action="Create" method="post">
+        <div class="mb-3">
+            <label asp-for="Title" class="form-label">Tytuł</label>
+            <input class="form-control" asp-for="Title" placeholder="Wprowadź tytuł" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Author" class="form-label">Autor książki</label>
+            <input class="form-control" asp-for="Author" placeholder="Wprowadź autora książki" />
+            <span class="text-danger" asp-validation-for="Author"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Page_No" class="form-label">Liczba stron</label>
+            <input class="form-control" asp-for="Page_No" placeholder="Wprowadź liczbę stron" />
+            <span class="text-danger" asp-validation-for="Page_No"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ISBN" class="form-label">ISBN</label>
+            <input class="form-control" asp-for="ISBN" placeholder="Wprowadź numer ISBN książki" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="PublicationDate" class="form-label">Data publikacji</label>
+            <input class="form-control" asp-for="PublicationDate" asp-format="{0:dd.MM.yyyy}" placeholder="DD.MM.RRRR" />
+            <span class="text-danger" asp-validation-for="PublicationDate"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="PublishingHouse" class="form-label">Wydawnictwo</label>
+            <input class="form-control" asp-for="PublishingHouse" placeholder="Wprowadź wydawnictwo" />
+            <span class="text-danger" asp-validation-for="PublishingHouse"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="BookStatus" class="form-label">Status książki</label>
+            <div>
+                <span asp-validation-for="BookStatus" class="text-danger"></span>
+            </div>
+            <select class="form-control" asp-for="BookStatus" asp-items="@Html.GetEnumSelectList<BookStatus>()"></select>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="LibraryId" class="form-label">Biblioteka</label>
+            <select class="form-control" asp-for="LibraryId" asp-items="@Model.Libraries"></select>
+        </div>
+
+        <div class="mb-3">
+            <button type="submit" class="btn btn-success">Utwórz</button>
+            <button type="reset" class="btn btn-danger">Wyczyść</button>
+        </div>
+    </form>
+</div>

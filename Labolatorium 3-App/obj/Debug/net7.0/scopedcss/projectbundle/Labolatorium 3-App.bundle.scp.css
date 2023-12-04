@@ -12,10 +12,15 @@ a[b-ky41oiqtr2] {
   color: #0077cc;
 }
 
+body[b-ky41oiqtr2] {
+    background-image: url('Img/AnimatedBackground');
+    margin: 0;
+}
+
 .btn-primary[b-ky41oiqtr2] {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
 }
 
 .nav-pills .nav-link.active[b-ky41oiqtr2], .nav-pills .show > .nav-link[b-ky41oiqtr2] {

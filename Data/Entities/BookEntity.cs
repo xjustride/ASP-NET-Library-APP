@@ -7,28 +7,30 @@ namespace Data.Entities
     [Table("books")]
     public class BookEntity
     {
-        [Key]
-        [Column("id")]
-        public int BookId { get; set; }
+        public DateTime Created { get; set; }
 
+        [Key]
+        public int Id { get; set; }
+
+        [MaxLength(50)]
         [Required]
-        [MaxLength(100)]
         public string Title { get; set; }
 
+        [MaxLength(50)]
         [Required]
         public string Page_No { get; set; }
-
-        [Required]
-        [MinLength(13)]
-        [MaxLength(13)] // Ustaw maksymalną długość dla ISBN
         public string ISBN { get; set; }
+        public string? Author { get; set; }
 
+        [Column("publication_date")]
         public DateTime? PublicationDate { get; set; }
-        [Required]
+
         public string PublishingHouse { get; set; }
-        [Required]
+
         public int Priority { get; set; }
-        public int LiteraryGenreId { get; set; }
-        public LiteraturyGenreEntity LiteraryGenre { get; set; }
+
+        public LibraryEntity Library { get; set; }
+
+        public int LibraryId { get; set; }
     }
 }

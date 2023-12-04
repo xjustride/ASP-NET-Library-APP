@@ -14,12 +14,14 @@ namespace Labolatorium_3_App
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddRazorPages();
+            builder.Services.AddSession();
             builder.Services.AddTransient<IContactService, EFContactService>();
+            builder.Services.AddTransient<IBookService, EFBookService>();
            // builder.Services.AddSingleton<IBookService, MemoryBookService>();
             builder.Services.AddSingleton<IDateTimeProvider, CurrentDateTimeProvider>();
            // builder.Services.AddSingleton<IContactService, MemoryContactService>();
             builder.Services.AddDbContext<AppDbContext>();
-
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<AppDbContext>();
             var app = builder.Build();
 
@@ -35,7 +37,8 @@ namespace Labolatorium_3_App
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseSession();
+            app.MapRazorPages();
             app.UseAuthorization();
 
             app.MapControllerRoute(

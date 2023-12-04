@@ -4,21 +4,86 @@ html {
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
+}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;1,900&family=Ubuntu:ital,wght@1,300&display=swap');
+
+@font-face {
+    font-family: 'JosefinSans';
+    src: url('fonts/josefin-sans/JosefinSans-Bold.ttf') format('truetype');
+    /* Dodatkowe formaty czcionki mo¿na dodaæ, w zale¿noœci od tego, co jest dostêpne */
+}
+body {
+    background-image: url('Img/AnimatedShape.svg');
+    background-repeat: no-repeat;
+    margin-bottom: 60px;
+    font-size: 22px;
+    font-family: 'Segoe Fluent Icons', sans-serif;
 }
 
+.container mt-5 {
+    background-image: url('/Img/Wave.svg');
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+}
+
+.loginpanel {
+    animation: slideIn 2s ease-in-out infinite; /* 2s to czas trwania animacji, ease-in-out to funkcja czasu, infinite to iloœæ powtórzeñ */
+}
+
+/* Zawartoœæ pliku site.css przed dodaniem nowego kodu */
+
+/* Dodany nowy kod */
+.book-animation {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+    .book-animation img {
+        width: 100px;
+        height: auto;
+        animation: bounce 2s alternate infinite;
+    }
+
+@keyframes bounce {
+    to {
+        transform: translateY(-20px);
+    }
+
+
+
+}
 body {
-  margin-bottom: 60px;
+    background-image: url('/Img/Cloudy.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 

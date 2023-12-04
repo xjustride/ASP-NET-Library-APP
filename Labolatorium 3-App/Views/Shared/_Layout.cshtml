@@ -3,14 +3,98 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Labolatorium_3_App</title>
+    <title>Made by Remigiusz Krupa - Labolatorium_3_App</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Labolatorium_3_App.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/path/to/site.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #495057;
+            margin-top: 20px;
+        }
+
+        header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e5e5e5;
+            box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+            color: #0077cc;
+            padding: 10px 0;
+        }
+
+        .navbar-brand {
+            white-space: normal;
+            text-align: center;
+            word-break: break-all;
+            color: #0077cc;
+        }
+
+        .navbar-toggler-icon {
+            color: #0077cc;
+        }
+
+        .navbar-nav .nav-link {
+            color: #0077cc;
+        }
+
+            .navbar-nav .nav-link:hover {
+                color: #0056b3;
+            }
+
+        main {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #ffffff;
+            border-top: 1px solid #e5e5e5;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            color: #0077cc;
+        }
+
+        .loginpanel {
+            margin-left: auto; /* To zapewni, że element będzie po prawej stronie */
+        }
+
+        .navbar {
+            animation: fadeInOut 5s ease-in-out;
+        }
+
+        /* Podświetlenie przycisków w navbarze po najechaniu */
+        .navbar-nav .nav-item:hover {
+            background-color: #0077cc;
+        }
+
+        .navbar-nav .nav-item:hover .nav-link {
+            color: #ffffff !important;
+        }
+
+        .navbar-nav .nav-item .nav-link.active {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        /* Styl dla hover */
+        .navbar-nav .nav-item .nav-link:hover {
+            background-color: #0056b3;
+            color: #ffffff;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-light bg-light border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Labolatorium_3_App</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -24,26 +108,27 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li><li class="nav-item">
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Contact" asp-action="Index">Contacts</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="Index">Books</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Organization" asp-action="Index">Organizations</a>
+                        </li>
+                        <li class="nav-item ms-auto">
+                            <partial name="_LoginPartial" />
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2023 - Labolatorium_3_App - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; @DateTime.Now.Year - Labolatorium_3_App - Made by Remigiusz Krupa
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -51,4 +136,7 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+<main role="main" class="pb-3">
+    @RenderBody()
+</main>
 </html>

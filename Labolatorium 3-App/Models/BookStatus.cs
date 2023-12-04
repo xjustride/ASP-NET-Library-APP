@@ -5,8 +5,8 @@ namespace Labolatorium_3_App.Models
 {
     public enum BookStatus
     {
-        [Display(Name = "Niedostępna")] Low = 1,
-        [Display(Name = "Na wyczerpaniu")] Normal = 2,
-        [Display(Name = "Dostępna")] High = 3,
+        [Display(Name = "Niedostępna")] Low = 0,
+        [Display(Name = "Na wyczerpaniu")] Normal = 1,
+        [Display(Name = "Dostępna")] High = 2,
     }
 }
