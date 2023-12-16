@@ -11,7 +11,7 @@ namespace Labolatorium_3_App.Models
         [HiddenInput]
         public int id { get; set; }
         [Required(ErrorMessage = "Musisz podać tytuł!")]
-        [Display(Name = "Tytuł")]
+        [Display(Name = "Title")]
         public string? Title { get; set; }
 
         [Required(ErrorMessage = "Musisz podać autora książki!")]
@@ -33,7 +33,7 @@ namespace Labolatorium_3_App.Models
 
 
         [Required(ErrorMessage = "Musisz podać nazwę wydawnictwa!")]
-        [Display(Name = "Nazwa wydawnictwa")]
+        [Display(Name = "Publishing house name")]
         public string? PublishingHouse { get; set; }
 
         [Display(Name = "Status dostępności")]

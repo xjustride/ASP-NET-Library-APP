@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "pdBKRVAGv50T5McArFN0cYf0yiHAoO7fuHXLHO8WJ2NS3S8L+DyM/+MZoyAHXUM2SYuEr3XXhx8agRBqOEx1PQ==",
+  "dgSpecHash": "0f+KeH08YG/RJ5gKoNAKgEKADkqz08Fm3b7MJ3iqPXEGbPGiDvTvEBcQzWVgwB5EH16XAifo0M6VcvBupm8c7g==",
   "success": true,
   "projectFilePath": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\Labolatorium 3-App.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\remo2\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\remo2\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
+    "C:\\Users\\remo2\\.nuget\\packages\\fontawesome\\4.7.0\\fontawesome.4.7.0.nupkg.sha512",
     "C:\\Users\\remo2\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\remo2\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\remo2\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",
