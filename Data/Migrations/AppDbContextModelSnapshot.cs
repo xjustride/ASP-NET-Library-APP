@@ -68,7 +68,7 @@ namespace Data.Migrations
                         {
                             Id = 1,
                             Author = "Jan Brzechwa",
-                            Created = new DateTime(2023, 12, 4, 1, 25, 5, 6, DateTimeKind.Local).AddTicks(3619),
+                            Created = new DateTime(2023, 12, 11, 21, 43, 53, 727, DateTimeKind.Local).AddTicks(8172),
                             ISBN = "12345678",
                             LibraryId = 1,
                             Page_No = "200",
@@ -123,7 +123,7 @@ namespace Data.Migrations
                         {
                             Id = 1,
                             Birth = new DateTime(2000, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Created = new DateTime(2023, 12, 4, 1, 25, 5, 6, DateTimeKind.Local).AddTicks(3781),
+                            Created = new DateTime(2023, 12, 11, 21, 43, 53, 727, DateTimeKind.Local).AddTicks(8253),
                             Email = "adam@wsei.edu.pl",
                             Name = "Adam",
                             OrganizationId = 1,
@@ -134,7 +134,7 @@ namespace Data.Migrations
                         {
                             Id = 2,
                             Birth = new DateTime(1999, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Created = new DateTime(2023, 12, 4, 1, 25, 5, 6, DateTimeKind.Local).AddTicks(3788),
+                            Created = new DateTime(2023, 12, 11, 21, 43, 53, 727, DateTimeKind.Local).AddTicks(8260),
                             Email = "ewa@wsei.edu.pl",
                             Name = "Ewa",
                             OrganizationId = 3,
@@ -261,8 +261,8 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "6c0fe714-3546-4653-9939-05b5158ee24f",
-                            ConcurrencyStamp = "6c0fe714-3546-4653-9939-05b5158ee24f",
+                            Id = "63f0c675-0e55-4883-8e02-bae8e0f71f3a",
+                            ConcurrencyStamp = "63f0c675-0e55-4883-8e02-bae8e0f71f3a",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -357,31 +357,31 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "328b97cb-1da8-4fa6-a37c-a6ec0338528c",
+                            Id = "e8395127-8282-4189-a5f0-602b335d51bc",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6c3469f7-7a62-4fe6-8510-ee275072e1b0",
-                            Email = "kacper@wsei.pl",
+                            ConcurrencyStamp = "a3733286-c97b-4d77-831c-6c259cb4df3a",
+                            Email = "test@test.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "KACPER@WSEI.PL",
-                            NormalizedUserName = "KACPER@WSEI.PL",
-                            PasswordHash = "AQAAAAEAACcQAAAAEGmitrkPzvyZvfoKflbvy8i1HZUFGYFusa5hbynDAqhA8kTxdERTbTWdJ/EZ95XHBg==",
+                            NormalizedEmail = "TEST@TEST.PL",
+                            NormalizedUserName = "TEST@TEST.PL",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFQEj98Ae2r0m3WdvWU22tVWCcQaunLF0BxCkIQEIjwhYo81L96FlnJ26nWd7uDNqA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "72607512-a650-4557-b67a-e0beee76a8ac",
+                            SecurityStamp = "bf19cb39-0a91-428d-8bf7-a264262ccd4a",
                             TwoFactorEnabled = false,
-                            UserName = "kacper@wsei.pl"
+                            UserName = "test@test.pl"
                         },
                         new
                         {
-                            Id = "908cfd00-6c1a-41ae-97b9-29f702affb14",
+                            Id = "bd1983db-3bee-4581-a8d6-fb12fcac4b3f",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0dde913d-90cf-44ec-928d-26e707b2ffbb",
+                            ConcurrencyStamp = "a32f0d4b-ed6f-4ab3-8122-0e3313f29c5d",
                             Email = "adminek@wp.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAEIpR+/N5Deq6/SEqlqP3K8BtjCOk14EFLPQeQT9yCcVqyaMACNJG8rgh79zCeiNFKg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEA5WptJ8VMFteAG4X2woLjFrLHrHiAODcsM82gBpvfMNiL821GdQhoAopbQKMQiCcg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "597ff51d-64ec-49a7-8b3d-c6d05d5811e2",
+                            SecurityStamp = "d92914cb-525a-4fb8-9534-56bcf1d75055",
                             TwoFactorEnabled = false,
                             UserName = "adminek@wp.pl"
                         });
@@ -449,8 +449,8 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "328b97cb-1da8-4fa6-a37c-a6ec0338528c",
-                            RoleId = "6c0fe714-3546-4653-9939-05b5158ee24f"
+                            UserId = "e8395127-8282-4189-a5f0-602b335d51bc",
+                            RoleId = "63f0c675-0e55-4883-8e02-bae8e0f71f3a"
                         });
                 });
 

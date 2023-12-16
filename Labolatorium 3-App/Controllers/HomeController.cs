@@ -15,6 +15,7 @@ namespace Labolatorium_3_App.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.LastVisit = HttpContext.Items[LastVisitCookie.CookieName];
             return View();
         }
 

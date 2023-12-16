@@ -2,50 +2,8 @@
 
 @{
 }
+
 <link rel="stylesheet" type="text/css" href="style.css" />
-<style>
-    body {
-        color: #495057; /* Kolor tekstu */
-    }
-
-    .container {
-        max-width: 600px;
-        margin: 0 auto;
-    }
-
-    h1 {
-        color: #007bff; /* Kolor nagłówka */
-    }
-
-    .form-label {
-        color: #17a2b8; /* Kolor etykiet formularza */
-    }
-    
-    .form-control {
-        background-color: #ffffff; /* Kolor tła pola formularza */
-        color: #495057; /* Kolor tekstu w polu formularza */
-    }
-
-    .btn-success {
-        background-color: #28a745; /* Kolor tła przycisku "Utwórz" */
-        color: #ffffff; /* Kolor tekstu na przycisku "Utwórz" */
-    }
-
-    .btn-danger {
-        background-color: #dc3545; /* Kolor tła przycisku "Wyczyść" */
-        color: #ffffff; /* Kolor tekstu na przycisku "Wyczyść" */
-    }
-</style>
-
-<style>
-    body {
-        background-image: url('/Img/Cloudy.svg');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-</style>
-
 <div class="container mt-5">
     <h1>Dodaj książkę</h1>
     <form asp-controller="Book" asp-action="Create" method="post">
@@ -102,3 +60,10 @@
         </div>
     </form>
 </div>
+
+<style>
+    body {
+        background-color: #161D22;
+    }
+</style>
+

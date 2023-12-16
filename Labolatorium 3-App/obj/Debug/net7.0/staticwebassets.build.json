@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DNQlAncpwx6J7I3bKjmO1msXVxjs6swjjugvjq6sbiY=",
+  "Hash": "+1cuqLD0ZZLIgVYQL0ouTXopQBLCgjmDuutLOBpI2iY=",
   "Source": "Labolatorium 3-App",
   "BasePath": "_content/Labolatorium 3-App",
   "Mode": "Default",
@@ -1122,23 +1122,6 @@
       "OriginalItemSpec": "wwwroot\\Img\\AnimatedBackground.svg"
     },
     {
-      "Identity": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\Img\\Cloudy.svg",
-      "SourceId": "Labolatorium 3-App",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\",
-      "BasePath": "_content/Labolatorium 3-App",
-      "RelativePath": "Img/Cloudy.svg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Img\\Cloudy.svg"
-    },
-    {
       "Identity": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\Img\\hp1.png",
       "SourceId": "Labolatorium 3-App",
       "SourceType": "Discovered",
@@ -1190,12 +1173,12 @@
       "OriginalItemSpec": "wwwroot\\Img\\hp3.png"
     },
     {
-      "Identity": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\Img\\Wave.svg",
+      "Identity": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\Img\\logo.png",
       "SourceId": "Labolatorium 3-App",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\",
       "BasePath": "_content/Labolatorium 3-App",
-      "RelativePath": "Img/Wave.svg",
+      "RelativePath": "Img/logo.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1204,7 +1187,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Img\\Wave.svg"
+      "OriginalItemSpec": "wwwroot\\Img\\logo.png"
     },
     {
       "Identity": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\js\\site.js",

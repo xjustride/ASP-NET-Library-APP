@@ -6,61 +6,24 @@
     <title>Made by Remigiusz Krupa - Labolatorium_3_App</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/Labolatorium_3_App.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/path/to/site.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    
+
 
     <style>
         body {
-            background-color: #f8f9fa;
-            color: #495057;
-            margin-top: 20px;
+            background-color: #1E272E;
+            color: white;
+
         }
-
-        header {
-            background-color: #ffffff;
-            border-bottom: 1px solid #e5e5e5;
-            box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.1);
-            color: #0077cc;
-            padding: 10px 0;
-        }
-
-        .navbar-brand {
-            white-space: normal;
-            text-align: center;
-            word-break: break-all;
-            color: #0077cc;
-        }
-
-        .navbar-toggler-icon {
-            color: #0077cc;
-        }
-
-        .navbar-nav .nav-link {
-            color: #0077cc;
-        }
-
-            .navbar-nav .nav-link:hover {
-                color: #0056b3;
-            }
-
-        main {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-
+       
         footer {
-            background-color: #ffffff;
-            border-top: 1px solid #e5e5e5;
+            background-color: #1E272E;
             padding: 10px 0;
             position: fixed;
             bottom: 0;
             width: 100%;
             text-align: center;
-            color: #0077cc;
+
         }
 
         .loginpanel {
@@ -68,55 +31,64 @@
         }
 
         .navbar {
-            animation: fadeInOut 5s ease-in-out;
+            animation: fadeInOut 7s ease-in-out;
+            background-color: #161D22!important;
+            color:white!important;
         }
 
-        /* Podświetlenie przycisków w navbarze po najechaniu */
-        .navbar-nav .nav-item:hover {
-            background-color: #0077cc;
-        }
 
-        .navbar-nav .nav-item:hover .nav-link {
-            color: #ffffff !important;
-        }
-
-        .navbar-nav .nav-item .nav-link.active {
-            background-color: #007bff;
-            color: #ffffff;
-        }
-
-        /* Styl dla hover */
         .navbar-nav .nav-item .nav-link:hover {
-            background-color: #0056b3;
-            color: #ffffff;
+            background-color: #2F4F4F !important;
+            border-radius: 10px;
         }
+
+        .border-bottom {
+            border-bottom: 1px solid #0033 !important;
+            */
+            /* border-bottom-width: ; */
+            /* border-bottom-style: ; */
+            /* border-bottom-color: ; /**/
+        }
+
+        .navbar-brand img
+        {
+            width: 200px;
+            display: flex;
+        }
+
+        
     </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-light bg-light border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Labolatorium_3_App</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <a class="navbar-brand" href="#">
+                    <img src="~/img/logo.png" alt="Logo"/>
+                </a>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Contact" asp-action="Index">Contacts</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Contact" asp-action="Index">Contacts</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="Index">Books</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Book" asp-action="Index">Books</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Organization" asp-action="Index">Organizations</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Library" asp-action="Index">Libraries</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Organization" asp-action="Index">Organizations</a>
                         </li>
                         <li class="nav-item ms-auto">
                             <partial name="_LoginPartial" />

@@ -20,7 +20,7 @@ namespace Data
         {
             var folder = Environment.SpecialFolder.LocalApplicationData;
             var path = Environment.GetFolderPath(folder);
-            DbPath = System.IO.Path.Join(path, "contacts.db");
+            DbPath = System.IO.Path.Join(path, "asplab.db");
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options) =>
@@ -41,14 +41,14 @@ namespace Data
             var user = new IdentityUser()
             {
                 Id = Guid.NewGuid().ToString(),
-                UserName = "kacper@wsei.pl",
-                NormalizedUserName = "KACPER@WSEI.PL",
-                Email = "kacper@wsei.pl",
-                NormalizedEmail = "KACPER@WSEI.PL",
+                UserName = "test@test.pl",
+                NormalizedUserName = "TEST@TEST.PL",
+                Email = "test@test.pl",
+                NormalizedEmail = "TEST@TEST.PL",
                 EmailConfirmed = true,
             };
 
-            user.PasswordHash = ph.HashPassword(user, "1234Ab!");
+            user.PasswordHash = ph.HashPassword(user, "abc1234!");
             modelBuilder.Entity<IdentityUser>()
                 .HasData(
                     user

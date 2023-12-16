@@ -1,0 +1,5 @@
+C:\Users\remo2\Desktop\3 semestr\ASP .NET\2 Laby 10.10.2023\Labolatorium-Test\obj\Debug\net7.0\Labolatorium-Test.csproj.AssemblyReference.cache
+C:\Users\remo2\Desktop\3 semestr\ASP .NET\2 Laby 10.10.2023\Labolatorium-Test\obj\Debug\net7.0\Labolatorium-Test.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\remo2\Desktop\3 semestr\ASP .NET\2 Laby 10.10.2023\Labolatorium-Test\obj\Debug\net7.0\Labolatorium-Test.AssemblyInfoInputs.cache
+C:\Users\remo2\Desktop\3 semestr\ASP .NET\2 Laby 10.10.2023\Labolatorium-Test\obj\Debug\net7.0\Labolatorium-Test.AssemblyInfo.cs
+C:\Users\remo2\Desktop\3 semestr\ASP .NET\2 Laby 10.10.2023\Labolatorium-Test\obj\Debug\net7.0\Labolatorium-Test.csproj.CoreCompileInputs.cache

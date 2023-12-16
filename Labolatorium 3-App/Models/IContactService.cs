@@ -10,7 +10,8 @@ public interface IContactService
     void Update(Contact book);
     List<Contact> FindAll();
     Contact? FindById(int id);
-    List<OrganizationEntity> FindAllOrganizations();
-    PagingList<Contact> FindPage(int pageIndex, int pageSize);
 
+    List<OrganizationEntity> FindAllOrganizations();
+
+    PagingList<Contact> FindPage(int pageIndex, int pageSize);
 }

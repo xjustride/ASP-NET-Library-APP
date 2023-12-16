@@ -35,7 +35,7 @@ namespace Labolatorium_3_App
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseMiddleware<LastVisitCookie>();
             app.UseRouting();
             app.UseSession();
             app.MapRazorPages();

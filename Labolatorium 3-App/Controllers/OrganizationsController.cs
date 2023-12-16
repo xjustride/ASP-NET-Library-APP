@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Laboratorium3___App.Controllers
+namespace Laboratorium3_App.Controllers
 {
     [Route("api/organizations")]
     [ApiController]
