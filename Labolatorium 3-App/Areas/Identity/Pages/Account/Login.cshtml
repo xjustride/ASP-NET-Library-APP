@@ -13,7 +13,7 @@
     <title>@ViewData["Title"]</title>
     <style>
         body {
-            background-color: #161D22;
+            background-color: #1E272E;
             color: #FFFFFF;
             font-family: Arial, sans-serif;
         }
@@ -45,10 +45,24 @@
         }
 
             .form-control:focus {
-                background-color: #364042; /* Kolor podczas aktywacji pola */
+                background-color: #364042;
                 color: #FFFFFF;
             }
 
+            /* Dodaj kolor tekstu dla wprowadzonego tekstu */
+            /* Dostosuj kolor tekstu po automatycznym wypełnieniu pola formularza */
+            .form-control:-webkit-autofill {
+                -webkit-text-fill-color: #FFFFFF;
+                transition: background-color 5000s ease-in-out 0s;
+            }
+
+                /* Dodaj kolor tekstu dla automagicznie wypełnionego tekstu */
+                .form-control:-webkit-autofill,
+                .form-control:-webkit-autofill:hover,
+                .form-control:-webkit-autofill:focus,
+                .form-control:-webkit-autofill:active {
+                    transition-delay: 9999s;
+                }
         .form-label {
             color: #61dafb;
         }
