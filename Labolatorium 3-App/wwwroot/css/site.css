@@ -1,0 +1,5 @@
+@media (max-width: 768px) {
+    .library-container {
+        flex-direction: row; /* Zmiana z column na row dla mniejszych ekranów */
+        align-items: stretch; /* Rozci¹ganie elementów pionowo */
+    }
