@@ -1,5 +1,4 @@
 @media (max-width: 768px) {
-    .library-container {
-        flex-direction: row; /* Zmiana z column na row dla mniejszych ekranów */
-        align-items: stretch; /* Rozci¹ganie elementów pionowo */
+    .library {
+        flex: 0 1 100%; /* Na mniejszych ekranach ka¿dy element bêdzie zajmowa³ ca³¹ szerokoœæ */
     }

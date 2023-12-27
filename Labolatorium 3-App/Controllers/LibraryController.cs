@@ -10,5 +10,16 @@ namespace Labolatorium_3_App.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public IActionResult bibl1()
+        {
+            return View();
+        }
+        [HttpGet]
+        public IActionResult Index1() 
+        {
+            return View();
+        }
     }
 }
