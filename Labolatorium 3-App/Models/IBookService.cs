@@ -8,7 +8,8 @@ public interface IBookService
     int Add(Book book);
     void Delete(int id);
     void Update(Book book);
-    List<Book> FindAll();
+    List<Book> FindAll(int page, int pageSize);
     Book? FindById(int id);
     List<LibraryEntity> FindAllOrganizations();
+    int CountBooks();
 }

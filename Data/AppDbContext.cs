@@ -172,10 +172,108 @@ namespace Data
                  Created = DateTime.Now,
                  LibraryId = 1 // Upewnij się, że to Id biblioteki istnieje w danych testowych dla bibliotek
              });
+            modelBuilder.Entity<BookEntity>().HasData(
+            new BookEntity()
+            {
+                Id = 2,
+                Title = "Przykładowa Książka 1",
+                Page_No = "200",
+                Author = "Jan Brzechwa",
+                ISBN = "12345678",
+                PublicationDate = new DateTime(2022, 1, 1),
+                PublishingHouse = "Wydawnictwo ABC",
+                Priority = 1,
+                Created = DateTime.Now,
+                LibraryId = 1 // Upewnij się, że to Id biblioteki istnieje w danych testowych dla bibliotek
+            });
+            modelBuilder.Entity<BookEntity>().HasData(
+            new BookEntity()
+            {
+                Id = 3,
+                Title = "Przykładowa Książka 1",
+                Page_No = "200",
+                Author = "Jan Brzechwa",
+                ISBN = "12345678",
+                PublicationDate = new DateTime(2022, 1, 1),
+                PublishingHouse = "Wydawnictwo ABC",
+                Priority = 1,
+                Created = DateTime.Now,
+                LibraryId = 1 // Upewnij się, że to Id biblioteki istnieje w danych testowych dla bibliotek
+            });
+            modelBuilder.Entity<BookEntity>().HasData(
+            new BookEntity()
+            {
+                Id = 4,
+                Title = "Przykładowa Książka 1",
+                Page_No = "200",
+                Author = "Jan Brzechwa",
+                ISBN = "12345678",
+                PublicationDate = new DateTime(2022, 1, 1),
+                PublishingHouse = "Wydawnictwo ABC",
+                Priority = 1,
+                Created = DateTime.Now,
+                LibraryId = 1 // Upewnij się, że to Id biblioteki istnieje w danych testowych dla bibliotek
+            });
+            modelBuilder.Entity<BookEntity>().HasData(
+            new BookEntity()
+            {
+                Id = 5,
+                Title = "Przykładowa Książka 1",
+                Page_No = "200",
+                Author = "Jan Brzechwa",
+                ISBN = "12345678",
+                PublicationDate = new DateTime(2022, 1, 1),
+                PublishingHouse = "Wydawnictwo ABC",
+                Priority = 1,
+                Created = DateTime.Now,
+                LibraryId = 1 // Upewnij się, że to Id biblioteki istnieje w danych testowych dla bibliotek
+            });
+            modelBuilder.Entity<BookEntity>().HasData(
+            new BookEntity()
+            {
+                Id = 6,
+                Title = "Przykładowa Książka 1",
+                Page_No = "200",
+                Author = "Jan Brzechwa",
+                ISBN = "12345678",
+                PublicationDate = new DateTime(2022, 1, 1),
+                PublishingHouse = "Wydawnictwo ABC",
+                Priority = 1,
+                Created = DateTime.Now,
+                LibraryId = 1 // Upewnij się, że to Id biblioteki istnieje w danych testowych dla bibliotek
+            });
+            modelBuilder.Entity<BookEntity>().HasData(
+            new BookEntity()
+            {
+                Id = 7,
+                Title = "Przykładowa Książka 1",
+                Page_No = "200",
+                Author = "Jan Brzechwa",
+                ISBN = "12345678",
+                PublicationDate = new DateTime(2022, 1, 1),
+                PublishingHouse = "Wydawnictwo ABC",
+                Priority = 1,
+                Created = DateTime.Now,
+                LibraryId = 1 // Upewnij się, że to Id biblioteki istnieje w danych testowych dla bibliotek
+            });
+            modelBuilder.Entity<BookEntity>().HasData(
+            new BookEntity()
+            {
+                Id = 8,
+                Title = "Przykładowa Książka 1",
+                Page_No = "200",
+                Author = "Jan Brzechwa",
+                ISBN = "12345678",
+                PublicationDate = new DateTime(2022, 1, 1),
+                PublishingHouse = "Wydawnictwo ABC",
+                Priority = 1,
+                Created = DateTime.Now,
+                LibraryId = 1 // Upewnij się, że to Id biblioteki istnieje w danych testowych dla bibliotek
+            });
 
 
             //dodanie kontaktów
-           modelBuilder.Entity<ContactEntity>().HasData(
+            modelBuilder.Entity<ContactEntity>().HasData(
                 new ContactEntity() { Id = 1, Name = "Adam", Email = "adam@wsei.edu.pl", Phone = "127813268163", Birth = new DateTime(2000, 10, 10), Priority = 1, Created = DateTime.Now, OrganizationId = 1 },
                 new ContactEntity() { Id = 2, Name = "Ewa", Email = "ewa@wsei.edu.pl", Phone = "293443823478", Birth = new DateTime(1999, 8, 10), Priority = 2, Created = DateTime.Now, OrganizationId = 3 }
             );

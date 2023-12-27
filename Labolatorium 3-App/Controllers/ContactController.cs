@@ -25,10 +25,10 @@ namespace Labolatorium_3_App.Controllers
             return View("Index", contacts);
         }
 
-        public IActionResult IndexPaging([FromQuery] int? page = 1, [FromQuery] int? size = 5)
-        {
-            return View(_contactService.FindPage((int)page, (int)size));
-        }
+        //public IActionResult IndexPaging([FromQuery] int? page = 1, [FromQuery] int? size = 5)
+        //{
+        //    return View(_contactService.FindPage((int)page, (int)size));
+        //}
 
         [HttpGet]
         public IActionResult Create()

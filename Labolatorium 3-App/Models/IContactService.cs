@@ -12,6 +12,4 @@ public interface IContactService
     Contact? FindById(int id);
 
     List<OrganizationEntity> FindAllOrganizations();
-
-    PagingList<Contact> FindPage(int pageIndex, int pageSize);
 }

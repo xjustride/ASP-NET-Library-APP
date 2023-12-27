@@ -33,9 +33,13 @@ namespace Labolatorium_3_App.Models
             }
         }
 
-        public List<Book> FindAll()
+        public List<Book> FindAll(int page, int pageSize)
         {
-            return _context.Books.Select(e => BookMapper.FromEntity(e)).ToList();
+            return _context.Books
+                           .Skip((page - 1) * pageSize)
+                           .Take(pageSize)
+                           .Select(e => BookMapper.FromEntity(e))
+                           .ToList();
         }
 
         public List<LibraryEntity> FindAllOrganizations()
@@ -68,6 +72,10 @@ namespace Labolatorium_3_App.Models
             {
                 throw new KeyNotFoundException("Book not found");
             }
+        }
+        public int CountBooks()
+        {
+            return _context.Books.Count(); // zwraca całkowitą liczbę książek
         }
 
     }

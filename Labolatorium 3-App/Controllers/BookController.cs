@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Labolatorium_3_App.Models;
 using Microsoft.AspNetCore.Authorization;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace Labolatorium_3_App.Models
 {
@@ -15,10 +16,18 @@ namespace Labolatorium_3_App.Models
         }
         //static readonly Dictionary<int, Contact> _contacts = new Dictionary<int, Contact> ();
         [AllowAnonymous]
-        public IActionResult Index()
+        public IActionResult Index(int page = 1, int pageSize = 10)
         {
-            List<Book> books = _bookService.FindAll();
-            return View(books);
+            int totalBooks = _bookService.CountBooks(); // uzyskaj całkowitą liczbę książek
+            List<Book> books = _bookService.FindAll(page, pageSize);
+
+            var viewModel = new BookListViewModel
+            {
+                Books = books,
+                PageInfo = new PageInfo { CurrentPage = page, TotalItems = totalBooks, ItemsPerPage = pageSize }
+            };
+
+            return View(viewModel);
         }
 
         [HttpGet]
@@ -126,6 +135,24 @@ namespace Labolatorium_3_App.Models
 
 
             return View(book);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateApi(Book b)
+        {
+            if (ModelState.IsValid)
+            {
+                _bookService.Add(b);
+                return RedirectToAction(nameof(Index));
+            }
+            return View();
+        }
+
+        // GET: ContactController/Edit/5
+        public ActionResult Edit(int id)
+        {
+            return View();
         }
 
 
