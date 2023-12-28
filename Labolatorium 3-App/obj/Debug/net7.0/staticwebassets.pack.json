@@ -5,6 +5,78 @@
       "PackagePath": "staticwebassets\\Labolatorium 3-App.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\Fonts\\Raleway-Black.ttf",
+      "PackagePath": "staticwebassets\\Fonts\\Raleway-Black.ttf"
+    },
+    {
+      "Id": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\Fonts\\Raleway-BlackItalic.ttf",
+      "PackagePath": "staticwebassets\\Fonts\\Raleway-BlackItalic.ttf"
+    },
+    {
+      "Id": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\Fonts\\Raleway-Bold.ttf",
+      "PackagePath": "staticwebassets\\Fonts\\Raleway-Bold.ttf"
+    },
+    {
+      "Id": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\Fonts\\Raleway-BoldItalic.ttf",
+      "PackagePath": "staticwebassets\\Fonts\\Raleway-BoldItalic.ttf"
+    },
+    {
+      "Id": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\Fonts\\Raleway-ExtraBold.ttf",
+      "PackagePath": "staticwebassets\\Fonts\\Raleway-ExtraBold.ttf"
+    },
+    {
+      "Id": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\Fonts\\Raleway-ExtraBoldItalic.ttf",
+      "PackagePath": "staticwebassets\\Fonts\\Raleway-ExtraBoldItalic.ttf"
+    },
+    {
+      "Id": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\Fonts\\Raleway-ExtraLight.ttf",
+      "PackagePath": "staticwebassets\\Fonts\\Raleway-ExtraLight.ttf"
+    },
+    {
+      "Id": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\Fonts\\Raleway-ExtraLightItalic.ttf",
+      "PackagePath": "staticwebassets\\Fonts\\Raleway-ExtraLightItalic.ttf"
+    },
+    {
+      "Id": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\Fonts\\Raleway-Italic.ttf",
+      "PackagePath": "staticwebassets\\Fonts\\Raleway-Italic.ttf"
+    },
+    {
+      "Id": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\Fonts\\Raleway-Light.ttf",
+      "PackagePath": "staticwebassets\\Fonts\\Raleway-Light.ttf"
+    },
+    {
+      "Id": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\Fonts\\Raleway-LightItalic.ttf",
+      "PackagePath": "staticwebassets\\Fonts\\Raleway-LightItalic.ttf"
+    },
+    {
+      "Id": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\Fonts\\Raleway-Medium.ttf",
+      "PackagePath": "staticwebassets\\Fonts\\Raleway-Medium.ttf"
+    },
+    {
+      "Id": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\Fonts\\Raleway-MediumItalic.ttf",
+      "PackagePath": "staticwebassets\\Fonts\\Raleway-MediumItalic.ttf"
+    },
+    {
+      "Id": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\Fonts\\Raleway-Regular.ttf",
+      "PackagePath": "staticwebassets\\Fonts\\Raleway-Regular.ttf"
+    },
+    {
+      "Id": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\Fonts\\Raleway-SemiBold.ttf",
+      "PackagePath": "staticwebassets\\Fonts\\Raleway-SemiBold.ttf"
+    },
+    {
+      "Id": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\Fonts\\Raleway-SemiBoldItalic.ttf",
+      "PackagePath": "staticwebassets\\Fonts\\Raleway-SemiBoldItalic.ttf"
+    },
+    {
+      "Id": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\Fonts\\Raleway-Thin.ttf",
+      "PackagePath": "staticwebassets\\Fonts\\Raleway-Thin.ttf"
+    },
+    {
+      "Id": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\Fonts\\Raleway-ThinItalic.ttf",
+      "PackagePath": "staticwebassets\\Fonts\\Raleway-ThinItalic.ttf"
+    },
+    {
       "Id": "C:\\Users\\remo2\\Desktop\\3 semestr\\ASP .NET\\2 Laby 10.10.2023\\Labolatorium 3-App\\wwwroot\\Img\\AnimatedBackground.svg",
       "PackagePath": "staticwebassets\\Img\\AnimatedBackground.svg"
     },

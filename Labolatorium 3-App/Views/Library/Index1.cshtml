@@ -1,10 +1,10 @@
 ﻿@model Library
 
 @{
-    ViewData["Title"] = "Wybierz swoją bibliotekę";
 }
 <link rel="stylesheet" type="css" href="site.css" />
-<h2>@ViewData["Title"]</h2>
+
+<h2 style="text-align: center;">Choose your library</h2>
 
 <div class="library-container">
     <div class="library">
@@ -36,6 +36,9 @@
 </div>
 
 <style>
+    body{
+        font
+    }
     .library-container {
         display: flex;
         flex-wrap: wrap;
@@ -81,13 +84,4 @@
 </style>
 
 <script>
-    // JavaScript can be used if you need to add more interactive behaviors
-    // Pobierz element div zawierający obrazek "bibl1" po jego identyfikatorze
-    var bibl1Element = document.getElementById("bibl1");
-
-    // Dodaj obsługę kliknięcia w ten element
-    bibl1Element.addEventListener("click", function () {
-        // Przekieruj użytkownika do widoku "bibl1"
-        window.location.href = "@Url.Action("bibl1", "Library")"; // Upewnij się, że ścieżka jest poprawna
-    });
 </script>

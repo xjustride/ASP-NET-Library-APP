@@ -25,9 +25,28 @@
 
   <ItemGroup>
     <Folder Include="Areas\Identity\Data" />
+    <Folder Include="wwwroot\Fonts\" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Fonts\Raleway-Black.ttf" />
+    <None Include="wwwroot\Fonts\Raleway-BlackItalic.ttf" />
+    <None Include="wwwroot\Fonts\Raleway-Bold.ttf" />
+    <None Include="wwwroot\Fonts\Raleway-BoldItalic.ttf" />
+    <None Include="wwwroot\Fonts\Raleway-ExtraBold.ttf" />
+    <None Include="wwwroot\Fonts\Raleway-ExtraBoldItalic.ttf" />
+    <None Include="wwwroot\Fonts\Raleway-ExtraLight.ttf" />
+    <None Include="wwwroot\Fonts\Raleway-ExtraLightItalic.ttf" />
+    <None Include="wwwroot\Fonts\Raleway-Italic.ttf" />
+    <None Include="wwwroot\Fonts\Raleway-Light.ttf" />
+    <None Include="wwwroot\Fonts\Raleway-LightItalic.ttf" />
+    <None Include="wwwroot\Fonts\Raleway-Medium.ttf" />
+    <None Include="wwwroot\Fonts\Raleway-MediumItalic.ttf" />
+    <None Include="wwwroot\Fonts\Raleway-Regular.ttf" />
+    <None Include="wwwroot\Fonts\Raleway-SemiBold.ttf" />
+    <None Include="wwwroot\Fonts\Raleway-SemiBoldItalic.ttf" />
+    <None Include="wwwroot\Fonts\Raleway-Thin.ttf" />
+    <None Include="wwwroot\Fonts\Raleway-ThinItalic.ttf" />
     <None Include="wwwroot\Img\hp1.png" />
     <None Include="wwwroot\Img\hp2.png" />
     <None Include="wwwroot\Img\hp3.png" />

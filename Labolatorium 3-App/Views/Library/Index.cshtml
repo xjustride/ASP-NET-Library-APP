@@ -1,49 +1,31 @@
-﻿@model Library
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<Labolatorium_3_App.Models.Library>
+
 @{
+    Layout = "_Layout"; // Jeśli masz główny układ strony
 }
 
-<div class="button-container">
-    <a href="@Url.Action("Index1", "Library")" class="action-button select-button">Wybierz swoją bibliotekę</a>
-    <a href="@Url.Action("ManageLibraries", "Home")" class="action-button manage-button">Zarządzaj bibliotekami</a>
-</div>
-
 <style>
-    .button-container {
+    .library-card {
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin-bottom: 20px;
         text-align: center;
-        margin-top: 20px;
     }
 
-    .action-button {
-        display: inline-block;
-        padding: 10px 20px;
-        margin: 10px;
-        font-size: 18px;
-        color: #fff;
-        background-color: #007bff;
-        border: none;
-        border-radius: 5px;
-        text-decoration: none;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-        cursor: pointer;
-    }
-
-        .action-button:hover {
-            background-color: #0056b3;
-            transform: translateY(-3px);
-        }
-
-    .select-button {
-        /* Specyficzne style dla przycisku wybierania biblioteki */
-    }
-
-    .manage-button {
-        /* Specyficzne style dla przycisku zarządzania bibliotekami */
+    .library-image {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
     }
 </style>
 
-<script>
-    // Tutaj możesz dodać JavaScript, jeśli jest potrzebny
-</script>
+@foreach (var library in Model)
+{
+    <div class="library-card">
+        <img src="~/Img/bibl@library.Id.jpg" class="library-image" alt="Obraz biblioteki @library.Name" />
+        <h2>@library.Name</h2>
+        <p>@library.Description</p>
+        <a href="@Url.Action("Edit", "Library", new { id = library.Id })" class="btn btn-primary">Edytuj</a>
+        <a href="@Url.Action("Delete", "Library", new { id = library.Id })" class="btn btn-danger">Usuń</a>
+    </div>
+}

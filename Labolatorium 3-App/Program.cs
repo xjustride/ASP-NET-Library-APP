@@ -1,5 +1,6 @@
 using Data;
 using Labolatorium_3_App.Models;
+using Labolatorium_3_App.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,6 +18,7 @@ namespace Labolatorium_3_App
             builder.Services.AddRazorPages();
             builder.Services.AddSession();
             builder.Services.AddTransient<IContactService, EFContactService>();
+            builder.Services.AddTransient<ILibraryService, EFLibraryService>();
             builder.Services.AddTransient<IBookService, EFBookService>();
            // builder.Services.AddSingleton<IBookService, MemoryBookService>();
             builder.Services.AddSingleton<IDateTimeProvider, CurrentDateTimeProvider>();
