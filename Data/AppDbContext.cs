@@ -13,6 +13,8 @@ namespace Data
         public DbSet<OrganizationEntity> Organizations { get; set; }
         public DbSet<BookEntity> Books { get; set; }
         public DbSet<LibraryEntity> Libraries { get; set; }
+        public DbSet<BorrowEntity> Borrows { get; set; }
+
 
         private string DbPath { get; set; }
 
@@ -47,6 +49,7 @@ namespace Data
                 NormalizedEmail = "TEST@TEST.PL",
                 EmailConfirmed = true,
             };
+
 
             user.PasswordHash = ph.HashPassword(user, "abc1234!");
             modelBuilder.Entity<IdentityUser>()

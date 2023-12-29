@@ -200,6 +200,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xVcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/remo2/Desktop/3 semestr/ASP .NET/2 Laby 10.10.2023/Labolatorium 3-App/Views/Borrow/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9ycm93XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/remo2/Desktop/3 semestr/ASP .NET/2 Laby 10.10.2023/Labolatorium 3-App/Views/Borrow/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9ycm93XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/remo2/Desktop/3 semestr/ASP .NET/2 Laby 10.10.2023/Labolatorium 3-App/Views/Contact/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -232,10 +240,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/remo2/Desktop/3 semestr/ASP .NET/2 Laby 10.10.2023/Labolatorium 3-App/Views/Library/bibl1.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlicmFyeVxiaWJsMS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/remo2/Desktop/3 semestr/ASP .NET/2 Laby 10.10.2023/Labolatorium 3-App/Views/Library/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlicmFyeVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -252,8 +256,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlicmFyeVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/remo2/Desktop/3 semestr/ASP .NET/2 Laby 10.10.2023/Labolatorium 3-App/Views/Library/Index1.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlicmFyeVxJbmRleDEuY3NodG1s
+[C:/Users/remo2/Desktop/3 semestr/ASP .NET/2 Laby 10.10.2023/Labolatorium 3-App/Views/Library/Manage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlicmFyeVxNYW5hZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/remo2/Desktop/3 semestr/ASP .NET/2 Laby 10.10.2023/Labolatorium 3-App/Views/Library/test.cshtml]

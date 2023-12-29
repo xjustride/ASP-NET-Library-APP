@@ -2,6 +2,7 @@
 using Labolatorium_3_App.Models;
 using Microsoft.AspNetCore.Authorization;
 using static System.Reflection.Metadata.BlobBuilder;
+using System.Security.Claims;
 
 namespace Labolatorium_3_App.Models
 {
@@ -154,7 +155,5 @@ namespace Labolatorium_3_App.Models
         {
             return View();
         }
-
-
     }
 }

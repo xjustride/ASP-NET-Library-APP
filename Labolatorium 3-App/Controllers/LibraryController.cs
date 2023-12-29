@@ -7,17 +7,22 @@ namespace Labolatorium_3_App.Controllers
     public class LibraryController : Controller
     {
         private readonly ILibraryService _libraryService;
+        private readonly IBookService _bookService;
 
         public LibraryController(ILibraryService libraryService)
         {
             _libraryService = libraryService;
         }
-        public IActionResult Index()
+        public IActionResult Manage()
         {
             var libraries = _libraryService.GetAllLibraries();
             return View(libraries);
         }
 
+        public IActionResult Index()
+        {
+            return View();
+        }
 
         public IActionResult Create()
         {
@@ -72,5 +77,6 @@ namespace Labolatorium_3_App.Controllers
             _libraryService.DeleteLibrary(id);
             return RedirectToAction(nameof(Index));
         }
+        
     }
 }

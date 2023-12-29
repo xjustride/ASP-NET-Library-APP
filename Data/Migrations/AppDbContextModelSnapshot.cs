@@ -68,7 +68,7 @@ namespace Data.Migrations
                         {
                             Id = 1,
                             Author = "Jan Brzechwa",
-                            Created = new DateTime(2023, 12, 26, 14, 46, 11, 973, DateTimeKind.Local).AddTicks(6794),
+                            Created = new DateTime(2023, 12, 29, 14, 26, 2, 451, DateTimeKind.Local).AddTicks(7469),
                             ISBN = "12345678",
                             LibraryId = 1,
                             Page_No = "200",
@@ -81,7 +81,7 @@ namespace Data.Migrations
                         {
                             Id = 2,
                             Author = "Jan Brzechwa",
-                            Created = new DateTime(2023, 12, 26, 14, 46, 11, 973, DateTimeKind.Local).AddTicks(6834),
+                            Created = new DateTime(2023, 12, 29, 14, 26, 2, 451, DateTimeKind.Local).AddTicks(7514),
                             ISBN = "12345678",
                             LibraryId = 1,
                             Page_No = "200",
@@ -94,7 +94,7 @@ namespace Data.Migrations
                         {
                             Id = 3,
                             Author = "Jan Brzechwa",
-                            Created = new DateTime(2023, 12, 26, 14, 46, 11, 973, DateTimeKind.Local).AddTicks(6841),
+                            Created = new DateTime(2023, 12, 29, 14, 26, 2, 451, DateTimeKind.Local).AddTicks(7524),
                             ISBN = "12345678",
                             LibraryId = 1,
                             Page_No = "200",
@@ -107,7 +107,7 @@ namespace Data.Migrations
                         {
                             Id = 4,
                             Author = "Jan Brzechwa",
-                            Created = new DateTime(2023, 12, 26, 14, 46, 11, 973, DateTimeKind.Local).AddTicks(6848),
+                            Created = new DateTime(2023, 12, 29, 14, 26, 2, 451, DateTimeKind.Local).AddTicks(7533),
                             ISBN = "12345678",
                             LibraryId = 1,
                             Page_No = "200",
@@ -120,7 +120,7 @@ namespace Data.Migrations
                         {
                             Id = 5,
                             Author = "Jan Brzechwa",
-                            Created = new DateTime(2023, 12, 26, 14, 46, 11, 973, DateTimeKind.Local).AddTicks(6855),
+                            Created = new DateTime(2023, 12, 29, 14, 26, 2, 451, DateTimeKind.Local).AddTicks(7542),
                             ISBN = "12345678",
                             LibraryId = 1,
                             Page_No = "200",
@@ -133,7 +133,7 @@ namespace Data.Migrations
                         {
                             Id = 6,
                             Author = "Jan Brzechwa",
-                            Created = new DateTime(2023, 12, 26, 14, 46, 11, 973, DateTimeKind.Local).AddTicks(6864),
+                            Created = new DateTime(2023, 12, 29, 14, 26, 2, 451, DateTimeKind.Local).AddTicks(7553),
                             ISBN = "12345678",
                             LibraryId = 1,
                             Page_No = "200",
@@ -146,7 +146,7 @@ namespace Data.Migrations
                         {
                             Id = 7,
                             Author = "Jan Brzechwa",
-                            Created = new DateTime(2023, 12, 26, 14, 46, 11, 973, DateTimeKind.Local).AddTicks(6870),
+                            Created = new DateTime(2023, 12, 29, 14, 26, 2, 451, DateTimeKind.Local).AddTicks(7563),
                             ISBN = "12345678",
                             LibraryId = 1,
                             Page_No = "200",
@@ -159,7 +159,7 @@ namespace Data.Migrations
                         {
                             Id = 8,
                             Author = "Jan Brzechwa",
-                            Created = new DateTime(2023, 12, 26, 14, 46, 11, 973, DateTimeKind.Local).AddTicks(6876),
+                            Created = new DateTime(2023, 12, 29, 14, 26, 2, 451, DateTimeKind.Local).AddTicks(7572),
                             ISBN = "12345678",
                             LibraryId = 1,
                             Page_No = "200",
@@ -168,6 +168,34 @@ namespace Data.Migrations
                             PublishingHouse = "Wydawnictwo ABC",
                             Title = "Przykładowa Książka 1"
                         });
+                });
+
+            modelBuilder.Entity("Data.Entities.BorrowEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("BookId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("BorrowDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("ReturnDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Borrows");
                 });
 
             modelBuilder.Entity("Data.Entities.ContactEntity", b =>
@@ -214,7 +242,7 @@ namespace Data.Migrations
                         {
                             Id = 1,
                             Birth = new DateTime(2000, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Created = new DateTime(2023, 12, 26, 14, 46, 11, 973, DateTimeKind.Local).AddTicks(6885),
+                            Created = new DateTime(2023, 12, 29, 14, 26, 2, 451, DateTimeKind.Local).AddTicks(7583),
                             Email = "adam@wsei.edu.pl",
                             Name = "Adam",
                             OrganizationId = 1,
@@ -225,7 +253,7 @@ namespace Data.Migrations
                         {
                             Id = 2,
                             Birth = new DateTime(1999, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Created = new DateTime(2023, 12, 26, 14, 46, 11, 973, DateTimeKind.Local).AddTicks(6887),
+                            Created = new DateTime(2023, 12, 29, 14, 26, 2, 451, DateTimeKind.Local).AddTicks(7586),
                             Email = "ewa@wsei.edu.pl",
                             Name = "Ewa",
                             OrganizationId = 3,
@@ -352,8 +380,8 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "e6d16494-736c-419c-87da-06338980002b",
-                            ConcurrencyStamp = "e6d16494-736c-419c-87da-06338980002b",
+                            Id = "5ef606b6-c35a-47d2-8cb6-9f442c21b1cb",
+                            ConcurrencyStamp = "5ef606b6-c35a-47d2-8cb6-9f442c21b1cb",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -448,31 +476,31 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "2ef89e76-a515-422b-a3e0-c19e55cab97c",
+                            Id = "eba14ef7-2de8-46d0-a26f-0f73fdf59557",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "56b53807-393b-424a-8f5c-c5f349ce98dd",
+                            ConcurrencyStamp = "6377b5f0-71c7-4e54-873c-c965695b35d6",
                             Email = "test@test.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST@TEST.PL",
                             NormalizedUserName = "TEST@TEST.PL",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKn/iLAHk0+kpb9jF2ddRQ1x6IgdhWGS/cBzon07xWa6mYbvodpql6Y+MCBEs1yxng==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKgZjyBQQVKSVyoMGUy0N41DT71lYBEsFK1igmJ/Zl/1S7aHtG0YomCVYn5F00bhAA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9980a5b9-1066-4049-b5c8-24d1fdaa59bf",
+                            SecurityStamp = "fd86945e-76f4-4f8d-809a-379c686094c1",
                             TwoFactorEnabled = false,
                             UserName = "test@test.pl"
                         },
                         new
                         {
-                            Id = "9182b210-1e5e-4633-b534-6e12193f8cab",
+                            Id = "bd689772-7f48-405c-bb6c-8539dfc90ba5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ce81bd97-fb69-409c-9904-3b2c1a954e41",
+                            ConcurrencyStamp = "0269b6bd-9cc4-446e-b82f-771c7c13699f",
                             Email = "adminek@wp.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAEGz6qlKK2ur4Un7TgOpz8mHOm3aJi6BfEqbw+S/b7tY+DVMGJ0W3eNwR7SDEWNTisw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEN7N8bvADtps/lR4u+QTFnw+qztLlee6B00QTTXdcc6EC8r4VmtMe8DeyBgyuXwcoQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6c143b10-6e14-4950-94d4-fdc084bd6ffb",
+                            SecurityStamp = "d48a0105-b47f-4cf3-8e19-cf45a4dd88e3",
                             TwoFactorEnabled = false,
                             UserName = "adminek@wp.pl"
                         });
@@ -540,8 +568,8 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "2ef89e76-a515-422b-a3e0-c19e55cab97c",
-                            RoleId = "e6d16494-736c-419c-87da-06338980002b"
+                            UserId = "eba14ef7-2de8-46d0-a26f-0f73fdf59557",
+                            RoleId = "5ef606b6-c35a-47d2-8cb6-9f442c21b1cb"
                         });
                 });
 
@@ -573,6 +601,25 @@ namespace Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Library");
+                });
+
+            modelBuilder.Entity("Data.Entities.BorrowEntity", b =>
+                {
+                    b.HasOne("Data.Entities.BookEntity", "Book")
+                        .WithMany()
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Data.Entities.ContactEntity", b =>

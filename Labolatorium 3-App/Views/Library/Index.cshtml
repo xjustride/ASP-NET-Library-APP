@@ -1,31 +1,59 @@
-﻿@model IEnumerable<Labolatorium_3_App.Models.Library>
+﻿@model Library
 
 @{
-    Layout = "_Layout"; // Jeśli masz główny układ strony
 }
+
+<p>
+    <a class="btn btn-outline-secondary" asp-controller="Library" asp-action="Manage">Manage libraries (admin role needed)</a>
+</p>
 
 <style>
-    .library-card {
-        border: 1px solid #ddd;
-        padding: 10px;
-        margin-bottom: 20px;
-        text-align: center;
+    body {
+        text-align: center; /* Wyśrodkowanie zawartości */
+        background-color: #1E272E; /* Kolor tła strony */
+        color: #fff; /* Kolor tekstu na stronie */
     }
 
-    .library-image {
-        max-width: 100%;
-        height: auto;
-        margin-bottom: 10px;
+    h1 {
+        color: #fff; /* Kolor nagłówka */
+    }
+
+    .btn-primary {
+        background-color: #2F4F4F; /* Kolor tła przycisku "Dodaj książkę" */
+        color: #fff; /* Kolor tekstu na przycisku "Dodaj książkę" */
+    }
+
+    .table-container {
+        background-color: #161D22; /* Kolor tła kontenera tabeli */
+        border-radius: 10px; /* Ustawienie zaokrąglonych rogów dla efektu subtelności */
+        overflow: hidden; /* Zapobieganie wyjścia treści poza kontener */
+        width: 80%; /* Szerokość kontenera */
+        margin: auto; /* Centrowanie kontenera na stronie */
+        padding: 20px; /* Odpowiednie wypełnienie dla treści wewnątrz kontenera */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Cień dla efektu podniesienia */
+        padding-bottom: 200px;
+    }
+
+    .table {
+        background-color: #161D22; /* Kolor tła tabeli */
+        width: 100%;
+        color: #fff;
+    }
+
+    th {
+        background-color: #161D22; /* Kolor tła nagłówków tabeli */
+        color: #fff; /* Kolor tekstu w nagłówkach tabeli */
+    }
+
+    td {
+        background-color: #fff; /* Kolor tła komórek tabeli */
+    }
+
+    .btn-outline-secondary,
+    .btn-outline-info,
+    .btn-outline-danger {
+        color: #fff; /* Kolor tekstu na przyciskach z obramowaniem */
+        border-color: #fff; /* Kolor obramowania przycisków z obramowaniem */
     }
 </style>
-
-@foreach (var library in Model)
-{
-    <div class="library-card">
-        <img src="~/Img/bibl@library.Id.jpg" class="library-image" alt="Obraz biblioteki @library.Name" />
-        <h2>@library.Name</h2>
-        <p>@library.Description</p>
-        <a href="@Url.Action("Edit", "Library", new { id = library.Id })" class="btn btn-primary">Edytuj</a>
-        <a href="@Url.Action("Delete", "Library", new { id = library.Id })" class="btn btn-danger">Usuń</a>
-    </div>
-}
+</style>
