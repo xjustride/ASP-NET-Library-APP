@@ -1,13 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
-
-namespace Labolatorium_3_App.Models
+﻿namespace Labolatorium_3_App.Models
 {
     public class BorrowViewModel
     {
-        public int BookId { get; set; }
-        public DateTime BorrowDate { get; set; }
-        public DateTime? ReturnDate { get; set; }
-
-        public IEnumerable<SelectListItem> Books { get; set; }
+        public List<Book> Books { get; set; }
+        public List<Library> Libraries { get; set; }
     }
 }

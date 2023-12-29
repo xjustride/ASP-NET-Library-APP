@@ -1,0 +1,41 @@
+﻿@model Labolatorium_3_App.Models.UserBorrowsViewModel
+
+@{
+    ViewData["Title"] = "Your Borrowings";
+}
+
+<style>
+    /* Twoje style CSS */
+</style>
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="table-container">
+    @if (Model.Borrows.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Borrow Date</th>
+                    <th>Return Date</th>
+                    <th>Library</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var borrow in Model.Borrows)
+                {
+                    <tr>
+                        <td>@borrow.Book.Title</td>
+                        <td>@borrow.BorrowDate.ToString("dd/MM/yyyy")</td>
+                        <td>@borrow.ReturnDate?.ToString("dd/MM/yyyy")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>You have no borrowings.</p>
+    }
+</div>

@@ -200,12 +200,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xVcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/remo2/Desktop/3 semestr/ASP .NET/2 Laby 10.10.2023/Labolatorium 3-App/Views/Borrow/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9ycm93XENyZWF0ZS5jc2h0bWw=
+[C:/Users/remo2/Desktop/3 semestr/ASP .NET/2 Laby 10.10.2023/Labolatorium 3-App/Views/Borrow/Borrow.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9ycm93XEJvcnJvdy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/remo2/Desktop/3 semestr/ASP .NET/2 Laby 10.10.2023/Labolatorium 3-App/Views/Borrow/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9ycm93XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/remo2/Desktop/3 semestr/ASP .NET/2 Laby 10.10.2023/Labolatorium 3-App/Views/Borrow/UserBorrows.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9ycm93XFVzZXJCb3Jyb3dzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/remo2/Desktop/3 semestr/ASP .NET/2 Laby 10.10.2023/Labolatorium 3-App/Views/Contact/Create.cshtml]

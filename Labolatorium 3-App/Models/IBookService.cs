@@ -13,7 +13,5 @@ public interface IBookService
     List<LibraryEntity> FindAllOrganizations();
     int CountBooks();
     List<Book> GetBooksByLibraryId(int libraryId);
-    void BorrowBook(int bookId, string userId);
     IEnumerable<Book> GetBooks(); // Dodaj tę metodę
-
 }

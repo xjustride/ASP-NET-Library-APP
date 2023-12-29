@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Sqlite;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Data
 {
@@ -24,7 +25,39 @@ namespace Data
             var path = Environment.GetFolderPath(folder);
             DbPath = System.IO.Path.Join(path, "asplab.db");
         }
+        public static void Initialize(IServiceProvider serviceProvider)
+        {
+            using (var scope = serviceProvider.CreateScope())
+            {
+                var context = scope.ServiceProvider.GetService<AppDbContext>();
+                var userManager = scope.ServiceProvider.GetService<UserManager<IdentityUser>>();
+                context.SeedData(userManager).Wait();
+            }
+        }
+        private async Task SeedData(UserManager<IdentityUser> userManager)
+        {
+            var user = await userManager.FindByEmailAsync("test@test.pl");
+            if (user == null)
+            {
+                user = new IdentityUser { UserName = "test@test.pl", Email = "test@test.pl" };
+                await userManager.CreateAsync(user, "TwojeHasło123!"); // Użyj silnego hasła
+            }
 
+            var books = Books.Take(5).ToList(); // Przyjmujemy, że wypożyczymy 5 pierwszych książek
+
+            foreach (var book in books)
+            {
+                Borrows.Add(new BorrowEntity
+                {
+                    BorrowDate = DateTime.Now,
+                    ReturnDate = null, // null, jeśli książka nie została jeszcze zwrócona
+                    UserId = user.Id,
+                    BookId = book.Id
+                });
+            }
+
+            await SaveChangesAsync();
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder options) =>
             options.UseSqlite($"Data Source={DbPath}");
 
@@ -35,7 +68,15 @@ namespace Data
                 .WithMany(l => l.Books)
                 .HasForeignKey(b => b.LibraryId);
 
-           
+            modelBuilder.Entity<BorrowEntity>()
+                 .HasOne(b => b.User)
+                 .WithMany()
+                 .HasForeignKey(b => b.UserId);
+
+                        modelBuilder.Entity<BorrowEntity>()
+                            .HasOne(b => b.Book)
+                            .WithMany()
+                            .HasForeignKey(b => b.BookId);
 
 
             base.OnModelCreating(modelBuilder);

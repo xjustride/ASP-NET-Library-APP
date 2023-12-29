@@ -87,19 +87,6 @@ namespace Labolatorium_3_App.Models
             var books = bookEntities.Select(be => BookMapper.FromEntity(be)).ToList();
             return books;
         }
-        public void BorrowBook(int bookid, string userId)
-        {
-            var borrow = new BorrowEntity
-            {
-                BookId = bookid,
-                UserId = userId,
-                BorrowDate = DateTime.Now,
-                ReturnDate = null // Na początku null, ponieważ książka nie została jeszcze zwrócona
-            };
-
-            _context.Borrows.Add(borrow);
-            _context.SaveChanges();
-        }
 
         public IEnumerable<Book> GetBooks()
         {

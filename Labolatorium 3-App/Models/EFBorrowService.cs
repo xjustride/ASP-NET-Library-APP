@@ -12,7 +12,7 @@ namespace Labolatorium_3_App.Models
             _context = context;
         }
 
-        public void BorrowBook(int bookId, string userId)
+        public async Task<BorrowEntity> BorrowBookAsync(int bookId, string userId)
         {
             var borrow = new BorrowEntity
             {
@@ -20,14 +20,20 @@ namespace Labolatorium_3_App.Models
                 UserId = userId,
                 BorrowDate = DateTime.Now
             };
+
             _context.Borrows.Add(borrow);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
+            return borrow;
         }
 
-        public IEnumerable<BorrowEntity> GetUserBorrows(string userId)
+        public async Task ReturnBookAsync(int borrowId)
         {
-            return _context.Borrows.Where(b => b.UserId == userId).ToList();
-
+            var borrow = await _context.Borrows.FindAsync(borrowId);
+            if (borrow != null)
+            {
+                borrow.ReturnDate = DateTime.Now;
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }

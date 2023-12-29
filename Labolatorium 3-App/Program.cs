@@ -20,7 +20,7 @@ namespace Labolatorium_3_App
             builder.Services.AddTransient<IContactService, EFContactService>();
             builder.Services.AddTransient<ILibraryService, EFLibraryService>();
             builder.Services.AddTransient<IBookService, EFBookService>();
-            builder.Services.AddTransient<IBorrowService, EFBorrowService>();
+            builder.Services.AddScoped<IBorrowService, EFBorrowService>();
             // builder.Services.AddSingleton<IBookService, MemoryBookService>();
             builder.Services.AddSingleton<IDateTimeProvider, CurrentDateTimeProvider>();
            // builder.Services.AddSingleton<IContactService, MemoryContactService>();

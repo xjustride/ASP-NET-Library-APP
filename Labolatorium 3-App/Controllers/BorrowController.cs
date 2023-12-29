@@ -1,94 +1,117 @@
-﻿using Labolatorium_3_App.Models;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using System.Security.Claims;
+using Data.Entities;
+using System;
+using System.Threading.Tasks;
+using Data;
+using Labolatorium_3_App.Models;
+using Labolatorium_3_App.Services;
 
-namespace Labolatorium_3_App.Controllers
+[Authorize]
+public class BorrowController : Controller
 {
-    [Authorize]
-    public class BorrowController : Controller
+    private readonly AppDbContext _context;
+    private readonly UserManager<IdentityUser> _userManager;
+    private readonly IBookService _bookService; // Dodana zależność
+    private readonly ILibraryService _libraryService;
+
+    public BorrowController(AppDbContext context, UserManager<IdentityUser> userManager, IBookService bookService, ILibraryService libraryService)
     {
-        private readonly IBorrowService _borrowService;
-        private readonly IBookService _bookService;
-        private readonly UserManager<IdentityUser> _userManager;
-
-        public BorrowController(IBookService bookService, UserManager<IdentityUser> userManager)
+        _context = context;
+        _userManager = userManager;
+        _bookService = bookService; // Inicjalizacja serwisu
+        _libraryService = libraryService;
+    }
+    [HttpGet]
+    public IActionResult Borrow()
+    {
+        var viewModel = new BorrowViewModel
         {
-            _bookService = bookService;
-            _userManager = userManager;
+            Books = _bookService.GetBooks().ToList(),
+            Libraries = _libraryService.GetAllLibraries()
+        };
+
+        return View(viewModel);
+    }
+    [HttpPost]
+    public async Task<IActionResult> BorrowBook(int bookId)
+    {
+        var user = await _userManager.GetUserAsync(User);
+        if (user == null)
+        {
+            return RedirectToAction("Login", "Account"); // Przekieruj do strony logowania
         }
 
-        public IActionResult Borrow(int bookId)
+        var book = await _context.Books.FindAsync(bookId);
+        if (book == null)
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            _borrowService.BorrowBook(bookId, userId);
-            return RedirectToAction("Index", "Library"); // Przekierowanie do listy bibliotek po wypożyczeniu
+            return NotFound(); // Nie znaleziono książki
         }
 
-        public IActionResult MyBorrows()
+        var borrow = new BorrowEntity
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var borrows = _borrowService.GetUserBorrows(userId);
-            return View(borrows);
+            BorrowDate = DateTime.Now,
+            UserId = user.Id,
+            BookId = bookId
+        };
+
+        _context.Borrows.Add(borrow);
+        await _context.SaveChangesAsync();
+
+        return RedirectToAction("Index", "Book"); // Przekieruj z powrotem do listy książek
+    }
+    [HttpPost]
+    public async Task<IActionResult> SubmitBorrow(BorrowFormViewModel model)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View("BorrowForm", model); // Powrót do formularza w przypadku błędu
         }
 
-        public IActionResult Index()
+        var user = await _userManager.GetUserAsync(User);
+        if (user == null)
         {
-            // Tutaj można umieścić logikę potrzebną do wygenerowania danych dla widoku,
-            // na przykład listę wszystkich wypożyczeń, jeśli użytkownik ma uprawnienia administratora
-            // lub przekierować użytkownika do innego widoku, jeśli jest to wymagane.
+            return RedirectToAction("Login", "Account"); // Przekieruj do logowania, jeśli użytkownik nie jest zalogowany
+        }
 
-            // Dla zwykłego użytkownika, możemy przekierować do listy jego wypożyczeń:
-            if (User.Identity.IsAuthenticated)
+        var borrow = new BorrowEntity
+        {
+            BookId = model.BookId,
+            LibraryId = model.LibraryId,
+            BorrowDate = model.BorrowDate,
+            ReturnDate = model.ReturnDate,
+            UserId = user.Id
+        };
+
+        _context.Borrows.Add(borrow);
+        await _context.SaveChangesAsync();
+
+        return RedirectToAction("Index", "Book"); // Przekieruj do listy książek po udanym wypożyczeniu
+    }
+    public async Task<IActionResult> UserBorrows()
+    {
+        var user = await _userManager.GetUserAsync(User);
+        if (user == null)
+        {
+            return RedirectToAction("Login", "Account");
+        }
+
+        var borrows = _context.Borrows
+            .Where(b => b.UserId == user.Id)
+            .Select(b => new UserBorrow
             {
-                return View();
-            }
-            else
-            {
-                // Dla niezalogowanych użytkowników, przekieruj do logowania lub innego odpowiedniego widoku.
-                return RedirectToAction("Login", "Account");
-            }
-        }
+                Book = new Book { Title = b.Book.Title }, // Zakładamy, że masz dostęp do odpowiednich właściwości
+                BorrowDate = b.BorrowDate,
+                ReturnDate = b.ReturnDate,
+            })
+            .ToList();
 
-
-        //[HttpPost]
-        //public IActionResult Create(BorrowViewModel model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var userId = _userManager.GetUserId(User); // Pobierz ID zalogowanego użytkownika
-
-        //        // Logika do zapisu wypożyczenia w bazie danych
-        //        // _borrowService.Add(new BorrowEntity { UserId = userId, BookId = model.BookId, ... });
-
-        //        return RedirectToAction("Index"); // Przekieruj do strony z listą wypożyczeń
-        //    }
-
-        //    // Jeśli model nie jest prawidłowy, zwróć formularz do poprawy
-        //    model.Books = _bookService.GetBooks().Select(x => new SelectListItem
-        //    {
-        //        Value = x.Id.ToString(),
-        //        Text = x.Title
-        //    });
-
-        //    return View(model);
-        //}
-
-        public IActionResult Create()
+        var viewModel = new UserBorrowsViewModel
         {
-            var model = new BorrowViewModel
-            {
-                Books = _bookService.GetBooks().Select(x => new SelectListItem
-                {
-                    Value = x.id.ToString(),
-                    Text = x.Title
-                }),
-                BorrowDate = DateTime.Now
-            };
+            Borrows = borrows
+        };
 
-            return View(model);
-        }
+        return View(viewModel);
     }
 }
