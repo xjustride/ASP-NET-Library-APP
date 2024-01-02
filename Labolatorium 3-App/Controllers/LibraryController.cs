@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Labolatorium_3_App.Controllers
 {
-    [Authorize(Roles = "ADMIN")]
     public class LibraryController : Controller
     {
         private readonly ILibraryService _libraryService;
