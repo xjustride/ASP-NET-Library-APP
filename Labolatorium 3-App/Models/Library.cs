@@ -1,4 +1,6 @@
-﻿namespace Labolatorium_3_App.Models
+﻿using Microsoft.AspNetCore.Authorization;
+
+namespace Labolatorium_3_App.Models
 {
     public class Library
     {

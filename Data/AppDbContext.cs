@@ -31,32 +31,7 @@ namespace Data
             {
                 var context = scope.ServiceProvider.GetService<AppDbContext>();
                 var userManager = scope.ServiceProvider.GetService<UserManager<IdentityUser>>();
-                context.SeedData(userManager).Wait();
             }
-        }
-        private async Task SeedData(UserManager<IdentityUser> userManager)
-        {
-            var user = await userManager.FindByEmailAsync("test@test.pl");
-            if (user == null)
-            {
-                user = new IdentityUser { UserName = "test@test.pl", Email = "test@test.pl" };
-                await userManager.CreateAsync(user, "TwojeHasło123!"); // Użyj silnego hasła
-            }
-
-            var books = Books.Take(5).ToList(); // Przyjmujemy, że wypożyczymy 5 pierwszych książek
-
-            foreach (var book in books)
-            {
-                Borrows.Add(new BorrowEntity
-                {
-                    BorrowDate = DateTime.Now,
-                    ReturnDate = null, // null, jeśli książka nie została jeszcze zwrócona
-                    UserId = user.Id,
-                    BookId = book.Id
-                });
-            }
-
-            await SaveChangesAsync();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder options) =>
             options.UseSqlite($"Data Source={DbPath}");
@@ -90,8 +65,6 @@ namespace Data
                 NormalizedEmail = "TEST@TEST.PL",
                 EmailConfirmed = true,
             };
-
-
             user.PasswordHash = ph.HashPassword(user, "abc1234!");
             modelBuilder.Entity<IdentityUser>()
                 .HasData(
@@ -120,12 +93,68 @@ namespace Data
                 Name = "admin",
                 NormalizedName = "ADMIN",
             };
+            var userRole = new IdentityRole
+            {
+                Id = Guid.NewGuid().ToString(),
+                Name = "user",
+                NormalizedName = "USER"
+            };
 
             modelBuilder.Entity<IdentityRole>()
                 .HasData(
-                adminRole
+                adminRole,
+                userRole
                 );
-            
+            PasswordHasher<IdentityUser> hasher = new PasswordHasher<IdentityUser>();
+
+            // Utworzenie użytkowników
+            var user1 = new IdentityUser
+            {
+                Id = Guid.NewGuid().ToString(),
+                UserName = "jan@przyklad.pl",
+                Email = "jan@przyklad.pl",
+                NormalizedUserName = "JAN@PRZYKLAD.PL",
+                NormalizedEmail = "JAN@PRZYKLAD.PL",
+                EmailConfirmed = true,
+                PasswordHash = hasher.HashPassword(null, "hasloJan123!")
+            };
+
+            var user2 = new IdentityUser
+            {
+                Id = Guid.NewGuid().ToString(),
+                UserName = "anna@przyklad.pl",
+                Email = "anna@przyklad.pl",
+                NormalizedUserName = "ANNA@PRZYKLAD.PL",
+                NormalizedEmail = "ANNA@PRZYKLAD.PL",
+                EmailConfirmed = true,
+                PasswordHash = hasher.HashPassword(null, "hasloAnna123!")
+            };
+
+            var user3 = new IdentityUser
+            {
+                Id = Guid.NewGuid().ToString(),
+                UserName = "kasia@przyklad.pl",
+                Email = "kasia@przyklad.pl",
+                NormalizedUserName = "KASIA@PRZYKLAD.PL",
+                NormalizedEmail = "KASIA@PRZYKLAD.PL",
+                EmailConfirmed = true,
+                PasswordHash = hasher.HashPassword(null, "hasloKasia123!")
+            };
+
+            modelBuilder.Entity<IdentityUser>().HasData(
+                user1, user2, user3
+            );
+
+            // Pobierz ID roli "user"
+            var userRoleId = modelBuilder.Model.FindEntityType(typeof(IdentityRole))
+                                    .GetSeedData().First(r => r["Name"].Equals("user"))["Id"].ToString();
+
+            // Przypisanie roli "user" dla użytkowników
+            modelBuilder.Entity<IdentityUserRole<string>>().HasData(
+                new IdentityUserRole<string> { UserId = user1.Id, RoleId = userRoleId },
+                new IdentityUserRole<string> { UserId = user2.Id, RoleId = userRoleId },
+                new IdentityUserRole<string> { UserId = user3.Id, RoleId = userRoleId }
+            );
             adminRole.ConcurrencyStamp = adminRole.Id;
 
             modelBuilder.Entity<IdentityUserRole<string>>()
@@ -203,117 +232,61 @@ namespace Data
                 );
 
             modelBuilder.Entity<BookEntity>().HasData(
-             new BookEntity()
-             {
-                 Id = 1,
-                 Title = "Przykładowa Książka 1",
-                 Page_No = "200",
-                 Author = "Jan Brzechwa",
-                 ISBN = "12345678",
-                 PublicationDate = new DateTime(2022, 1, 1),
-                 PublishingHouse = "Wydawnictwo ABC",
-                 Priority = 1,
-                 Created = DateTime.Now,
-                 LibraryId = 1 // Upewnij się, że to Id biblioteki istnieje w danych testowych dla bibliotek
-             });
+              new BookEntity()
+              {
+                  Id = 1,
+                  Title = "Lalka",
+                  Page_No = "800",
+                  Author = "Bolesław Prus",
+                  ISBN = "1234567890",
+                  PublicationDate = new DateTime(1890, 1, 1),
+                  PublishingHouse = "Wydawnictwo Epoka",
+                  Priority = 1,
+                  Created = DateTime.Now,
+                  LibraryId = 1
+              });
             modelBuilder.Entity<BookEntity>().HasData(
-            new BookEntity()
-            {
-                Id = 2,
-                Title = "Przykładowa Książka 1",
-                Page_No = "200",
-                Author = "Jan Brzechwa",
-                ISBN = "12345678",
-                PublicationDate = new DateTime(2022, 1, 1),
-                PublishingHouse = "Wydawnictwo ABC",
-                Priority = 1,
-                Created = DateTime.Now,
-                LibraryId = 1 // Upewnij się, że to Id biblioteki istnieje w danych testowych dla bibliotek
-            });
+                new BookEntity()
+                {
+                    Id = 2,
+                    Title = "Pan Tadeusz",
+                    Page_No = "340",
+                    Author = "Adam Mickiewicz",
+                    ISBN = "2345678901",
+                    PublicationDate = new DateTime(1834, 1, 1),
+                    PublishingHouse = "Wydawnictwo Narodowe",
+                    Priority = 1,
+                    Created = DateTime.Now,
+                    LibraryId = 1
+                });
             modelBuilder.Entity<BookEntity>().HasData(
-            new BookEntity()
-            {
-                Id = 3,
-                Title = "Przykładowa Książka 1",
-                Page_No = "200",
-                Author = "Jan Brzechwa",
-                ISBN = "12345678",
-                PublicationDate = new DateTime(2022, 1, 1),
-                PublishingHouse = "Wydawnictwo ABC",
-                Priority = 1,
-                Created = DateTime.Now,
-                LibraryId = 1 // Upewnij się, że to Id biblioteki istnieje w danych testowych dla bibliotek
-            });
+                new BookEntity()
+                {
+                    Id = 3,
+                    Title = "Ferdydurke",
+                    Page_No = "300",
+                    Author = "Witold Gombrowicz",
+                    ISBN = "3456789012",
+                    PublicationDate = new DateTime(1937, 1, 1),
+                    PublishingHouse = "Wydawnictwo Literackie",
+                    Priority = 1,
+                    Created = DateTime.Now,
+                    LibraryId = 1
+                });
             modelBuilder.Entity<BookEntity>().HasData(
-            new BookEntity()
-            {
-                Id = 4,
-                Title = "Przykładowa Książka 1",
-                Page_No = "200",
-                Author = "Jan Brzechwa",
-                ISBN = "12345678",
-                PublicationDate = new DateTime(2022, 1, 1),
-                PublishingHouse = "Wydawnictwo ABC",
-                Priority = 1,
-                Created = DateTime.Now,
-                LibraryId = 1 // Upewnij się, że to Id biblioteki istnieje w danych testowych dla bibliotek
-            });
-            modelBuilder.Entity<BookEntity>().HasData(
-            new BookEntity()
-            {
-                Id = 5,
-                Title = "Przykładowa Książka 1",
-                Page_No = "200",
-                Author = "Jan Brzechwa",
-                ISBN = "12345678",
-                PublicationDate = new DateTime(2022, 1, 1),
-                PublishingHouse = "Wydawnictwo ABC",
-                Priority = 1,
-                Created = DateTime.Now,
-                LibraryId = 1 // Upewnij się, że to Id biblioteki istnieje w danych testowych dla bibliotek
-            });
-            modelBuilder.Entity<BookEntity>().HasData(
-            new BookEntity()
-            {
-                Id = 6,
-                Title = "Przykładowa Książka 1",
-                Page_No = "200",
-                Author = "Jan Brzechwa",
-                ISBN = "12345678",
-                PublicationDate = new DateTime(2022, 1, 1),
-                PublishingHouse = "Wydawnictwo ABC",
-                Priority = 1,
-                Created = DateTime.Now,
-                LibraryId = 1 // Upewnij się, że to Id biblioteki istnieje w danych testowych dla bibliotek
-            });
-            modelBuilder.Entity<BookEntity>().HasData(
-            new BookEntity()
-            {
-                Id = 7,
-                Title = "Przykładowa Książka 1",
-                Page_No = "200",
-                Author = "Jan Brzechwa",
-                ISBN = "12345678",
-                PublicationDate = new DateTime(2022, 1, 1),
-                PublishingHouse = "Wydawnictwo ABC",
-                Priority = 1,
-                Created = DateTime.Now,
-                LibraryId = 1 // Upewnij się, że to Id biblioteki istnieje w danych testowych dla bibliotek
-            });
-            modelBuilder.Entity<BookEntity>().HasData(
-            new BookEntity()
-            {
-                Id = 8,
-                Title = "Przykładowa Książka 1",
-                Page_No = "200",
-                Author = "Jan Brzechwa",
-                ISBN = "12345678",
-                PublicationDate = new DateTime(2022, 1, 1),
-                PublishingHouse = "Wydawnictwo ABC",
-                Priority = 1,
-                Created = DateTime.Now,
-                LibraryId = 1 // Upewnij się, że to Id biblioteki istnieje w danych testowych dla bibliotek
-            });
+                new BookEntity()
+                {
+                    Id = 4,
+                    Title = "Nad Niemnem",
+                    Page_No = "450",
+                    Author = "Eliza Orzeszkowa",
+                    ISBN = "4567890123",
+                    PublicationDate = new DateTime(1888, 1, 1),
+                    PublishingHouse = "Wydawnictwo Zielona Sowa",
+                    Priority = 1,
+                    Created = DateTime.Now,
+                    LibraryId = 1
+                });
 
 
             //dodanie kontaktów

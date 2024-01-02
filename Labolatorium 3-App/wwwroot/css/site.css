@@ -2,3 +2,5 @@
     .library {
         flex: 0 1 100%; /* Na mniejszych ekranach ka¿dy element bêdzie zajmowa³ ca³¹ szerokoœæ */
     }
+
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');

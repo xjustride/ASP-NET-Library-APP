@@ -9,6 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="~/css/site.css" />
     <style>
         /* Dostosuj kolor tekstu po automatycznym wypełnieniu pola formularza */
         .form-control:-webkit-autofill {
@@ -28,6 +29,8 @@
             background-color: #1E272E;
             color: #FFFFFF;
             font-family: Arial, sans-serif;
+
+            
         }
 
         .container {
@@ -41,6 +44,7 @@
             border: 1px solid #2C3338;
             border-radius: 8px;
             display: inline-block;
+            padding: 25px;
 
 
         }
@@ -91,10 +95,21 @@
             a:hover {
                 color: #4fa3d1;
             }
+        .registertext{
+            color:lightgreen;
+            font-family: 'Oswald', sans-serif;
+            text-align: left;
+            margin-left: 150px;
+            
+        }
     </style>
     <title>@ViewData["Title"]</title>
 </head>
+
 <body>
+    <div class="registertext">
+        <h2><strong>#Read your future now!</strong></h2>
+    </div>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-4">

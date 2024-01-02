@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Labolatorium_3_App.Models;
+using Microsoft.AspNetCore.Authorization;
 //... inne usingi
 
 namespace Labolatorium_3_App.Controllers
 {
+    [Authorize(Roles = "ADMIN")]
     public class LibraryController : Controller
     {
         private readonly ILibraryService _libraryService;

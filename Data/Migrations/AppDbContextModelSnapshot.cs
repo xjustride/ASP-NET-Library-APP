@@ -67,106 +67,54 @@ namespace Data.Migrations
                         new
                         {
                             Id = 1,
-                            Author = "Jan Brzechwa",
-                            Created = new DateTime(2023, 12, 29, 21, 9, 30, 758, DateTimeKind.Local).AddTicks(3799),
-                            ISBN = "12345678",
+                            Author = "Bolesław Prus",
+                            Created = new DateTime(2024, 1, 2, 11, 38, 52, 480, DateTimeKind.Local).AddTicks(519),
+                            ISBN = "1234567890",
                             LibraryId = 1,
-                            Page_No = "200",
+                            Page_No = "800",
                             Priority = 1,
-                            PublicationDate = new DateTime(2022, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            PublishingHouse = "Wydawnictwo ABC",
-                            Title = "Przykładowa Książka 1"
+                            PublicationDate = new DateTime(1890, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PublishingHouse = "Wydawnictwo Epoka",
+                            Title = "Lalka"
                         },
                         new
                         {
                             Id = 2,
-                            Author = "Jan Brzechwa",
-                            Created = new DateTime(2023, 12, 29, 21, 9, 30, 758, DateTimeKind.Local).AddTicks(3854),
-                            ISBN = "12345678",
+                            Author = "Adam Mickiewicz",
+                            Created = new DateTime(2024, 1, 2, 11, 38, 52, 480, DateTimeKind.Local).AddTicks(569),
+                            ISBN = "2345678901",
                             LibraryId = 1,
-                            Page_No = "200",
+                            Page_No = "340",
                             Priority = 1,
-                            PublicationDate = new DateTime(2022, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            PublishingHouse = "Wydawnictwo ABC",
-                            Title = "Przykładowa Książka 1"
+                            PublicationDate = new DateTime(1834, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PublishingHouse = "Wydawnictwo Narodowe",
+                            Title = "Pan Tadeusz"
                         },
                         new
                         {
                             Id = 3,
-                            Author = "Jan Brzechwa",
-                            Created = new DateTime(2023, 12, 29, 21, 9, 30, 758, DateTimeKind.Local).AddTicks(3863),
-                            ISBN = "12345678",
+                            Author = "Witold Gombrowicz",
+                            Created = new DateTime(2024, 1, 2, 11, 38, 52, 480, DateTimeKind.Local).AddTicks(579),
+                            ISBN = "3456789012",
                             LibraryId = 1,
-                            Page_No = "200",
+                            Page_No = "300",
                             Priority = 1,
-                            PublicationDate = new DateTime(2022, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            PublishingHouse = "Wydawnictwo ABC",
-                            Title = "Przykładowa Książka 1"
+                            PublicationDate = new DateTime(1937, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PublishingHouse = "Wydawnictwo Literackie",
+                            Title = "Ferdydurke"
                         },
                         new
                         {
                             Id = 4,
-                            Author = "Jan Brzechwa",
-                            Created = new DateTime(2023, 12, 29, 21, 9, 30, 758, DateTimeKind.Local).AddTicks(3871),
-                            ISBN = "12345678",
+                            Author = "Eliza Orzeszkowa",
+                            Created = new DateTime(2024, 1, 2, 11, 38, 52, 480, DateTimeKind.Local).AddTicks(587),
+                            ISBN = "4567890123",
                             LibraryId = 1,
-                            Page_No = "200",
+                            Page_No = "450",
                             Priority = 1,
-                            PublicationDate = new DateTime(2022, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            PublishingHouse = "Wydawnictwo ABC",
-                            Title = "Przykładowa Książka 1"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Author = "Jan Brzechwa",
-                            Created = new DateTime(2023, 12, 29, 21, 9, 30, 758, DateTimeKind.Local).AddTicks(3879),
-                            ISBN = "12345678",
-                            LibraryId = 1,
-                            Page_No = "200",
-                            Priority = 1,
-                            PublicationDate = new DateTime(2022, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            PublishingHouse = "Wydawnictwo ABC",
-                            Title = "Przykładowa Książka 1"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Author = "Jan Brzechwa",
-                            Created = new DateTime(2023, 12, 29, 21, 9, 30, 758, DateTimeKind.Local).AddTicks(3889),
-                            ISBN = "12345678",
-                            LibraryId = 1,
-                            Page_No = "200",
-                            Priority = 1,
-                            PublicationDate = new DateTime(2022, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            PublishingHouse = "Wydawnictwo ABC",
-                            Title = "Przykładowa Książka 1"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Author = "Jan Brzechwa",
-                            Created = new DateTime(2023, 12, 29, 21, 9, 30, 758, DateTimeKind.Local).AddTicks(3898),
-                            ISBN = "12345678",
-                            LibraryId = 1,
-                            Page_No = "200",
-                            Priority = 1,
-                            PublicationDate = new DateTime(2022, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            PublishingHouse = "Wydawnictwo ABC",
-                            Title = "Przykładowa Książka 1"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Author = "Jan Brzechwa",
-                            Created = new DateTime(2023, 12, 29, 21, 9, 30, 758, DateTimeKind.Local).AddTicks(3907),
-                            ISBN = "12345678",
-                            LibraryId = 1,
-                            Page_No = "200",
-                            Priority = 1,
-                            PublicationDate = new DateTime(2022, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            PublishingHouse = "Wydawnictwo ABC",
-                            Title = "Przykładowa Książka 1"
+                            PublicationDate = new DateTime(1888, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PublishingHouse = "Wydawnictwo Zielona Sowa",
+                            Title = "Nad Niemnem"
                         });
                 });
 
@@ -247,7 +195,7 @@ namespace Data.Migrations
                         {
                             Id = 1,
                             Birth = new DateTime(2000, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Created = new DateTime(2023, 12, 29, 21, 9, 30, 758, DateTimeKind.Local).AddTicks(3916),
+                            Created = new DateTime(2024, 1, 2, 11, 38, 52, 480, DateTimeKind.Local).AddTicks(596),
                             Email = "adam@wsei.edu.pl",
                             Name = "Adam",
                             OrganizationId = 1,
@@ -258,7 +206,7 @@ namespace Data.Migrations
                         {
                             Id = 2,
                             Birth = new DateTime(1999, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Created = new DateTime(2023, 12, 29, 21, 9, 30, 758, DateTimeKind.Local).AddTicks(3919),
+                            Created = new DateTime(2024, 1, 2, 11, 38, 52, 480, DateTimeKind.Local).AddTicks(599),
                             Email = "ewa@wsei.edu.pl",
                             Name = "Ewa",
                             OrganizationId = 3,
@@ -385,10 +333,17 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "9f3ba2f6-608e-4b57-b5ef-5cd0163031b2",
-                            ConcurrencyStamp = "9f3ba2f6-608e-4b57-b5ef-5cd0163031b2",
+                            Id = "c860a04c-159b-440f-9096-c3e15377d9bb",
+                            ConcurrencyStamp = "c860a04c-159b-440f-9096-c3e15377d9bb",
                             Name = "admin",
                             NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "4a7e5705-0a0f-4e38-b169-f7c4d32a8cb4",
+                            ConcurrencyStamp = "33af9030-02b1-406c-ae3e-7958d95ccfc0",
+                            Name = "user",
+                            NormalizedName = "USER"
                         });
                 });
 
@@ -481,33 +436,81 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "28afa87f-2da4-4282-b9ba-99e2b20983b6",
+                            Id = "9b40da3d-39aa-453f-b41e-e497cced4a01",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b2483c71-b680-47cf-99c3-7fb6787d8c31",
+                            ConcurrencyStamp = "38db338c-2c81-48cc-b9a5-146f841648d1",
                             Email = "test@test.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "TEST@TEST.PL",
                             NormalizedUserName = "TEST@TEST.PL",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEhU6dM86jmXh4LMqUMtk/4YDeUR3GsBNoQghWUaPqwU70wPyyfoQw+f9uR0X00dew==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELJOUBFjb/4KcG/EGuSMZan/tPs5TpHhTujZt/1iPjh2EzW3iLe821bHWUof7SrIWQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c467db88-5d6a-430e-af49-ebc0b9fc63f0",
+                            SecurityStamp = "d674a31d-4026-42e2-b668-6be4316d5e37",
                             TwoFactorEnabled = false,
                             UserName = "test@test.pl"
                         },
                         new
                         {
-                            Id = "e1d7ae3e-ba2e-44fd-b3f8-897625630ec5",
+                            Id = "37a02f36-d78d-42d4-8871-2ff93b99295f",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "798eb75f-2cb0-4fd3-944f-a2c759cbfc64",
+                            ConcurrencyStamp = "159b1db8-8909-4dbc-b097-60ec7f2e6213",
                             Email = "adminek@wp.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAEJy42310b4SRIsXPVX8jFKpTC2jZyLv7ZZWHesb+nWVCRWB6Ao4TTnVMrA+OHC6iWQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDHnadnmu1Wk2jjH1Ihh22QiHH5KfczOtUKEbrnJm7Pk1ejyjXIAKRGKrTcEJ3eXmw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8d842a50-8776-4538-9ccf-5a285f3272f6",
+                            SecurityStamp = "0538abd0-8dd3-4133-a8a3-370e87ce78af",
                             TwoFactorEnabled = false,
                             UserName = "adminek@wp.pl"
+                        },
+                        new
+                        {
+                            Id = "638eccae-d4c4-4190-9135-a2008e5ac012",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "55e7e9c4-c80a-4ea6-8836-e8f3ea7135ae",
+                            Email = "jan@przyklad.pl",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "JAN@PRZYKLAD.PL",
+                            NormalizedUserName = "JAN@PRZYKLAD.PL",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKrg5U/g6gFBegAY43SpR4b6wtIMIv0vUiZaPXLm8nqmlfUWAU4Mw3rUqg/Jf5j+mQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "652de4b8-d973-4b22-8dc5-4ce41b900441",
+                            TwoFactorEnabled = false,
+                            UserName = "jan@przyklad.pl"
+                        },
+                        new
+                        {
+                            Id = "2b9da503-60ce-4adc-98df-2eac570a99af",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "c2c366af-b80f-4228-9d01-d0a8040e8322",
+                            Email = "anna@przyklad.pl",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ANNA@PRZYKLAD.PL",
+                            NormalizedUserName = "ANNA@PRZYKLAD.PL",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEK+CB6OX31wpFZDFI2Wg92cUyV9hDGSbJRObueC10ih9YOe3+siBYITJ1P48dCYSw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "4e9dcf0c-a050-4a97-9264-f9fb002bc6e0",
+                            TwoFactorEnabled = false,
+                            UserName = "anna@przyklad.pl"
+                        },
+                        new
+                        {
+                            Id = "e32d1328-313d-43d0-b1af-42eb24deee58",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "fe5bffb1-8ab7-4111-8086-ec847b232889",
+                            Email = "kasia@przyklad.pl",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "KASIA@PRZYKLAD.PL",
+                            NormalizedUserName = "KASIA@PRZYKLAD.PL",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFu5aDDeUhl1gjkZj/PDxT3wMsZgbhI01kQ++JOs+ngMnoAN14Fmi6jt3sHmML0gBA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "4e05640b-cde0-4468-b017-467b42839976",
+                            TwoFactorEnabled = false,
+                            UserName = "kasia@przyklad.pl"
                         });
                 });
 
@@ -573,8 +576,23 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "28afa87f-2da4-4282-b9ba-99e2b20983b6",
-                            RoleId = "9f3ba2f6-608e-4b57-b5ef-5cd0163031b2"
+                            UserId = "638eccae-d4c4-4190-9135-a2008e5ac012",
+                            RoleId = "4a7e5705-0a0f-4e38-b169-f7c4d32a8cb4"
+                        },
+                        new
+                        {
+                            UserId = "2b9da503-60ce-4adc-98df-2eac570a99af",
+                            RoleId = "4a7e5705-0a0f-4e38-b169-f7c4d32a8cb4"
+                        },
+                        new
+                        {
+                            UserId = "e32d1328-313d-43d0-b1af-42eb24deee58",
+                            RoleId = "4a7e5705-0a0f-4e38-b169-f7c4d32a8cb4"
+                        },
+                        new
+                        {
+                            UserId = "9b40da3d-39aa-453f-b41e-e497cced4a01",
+                            RoleId = "c860a04c-159b-440f-9096-c3e15377d9bb"
                         });
                 });
 

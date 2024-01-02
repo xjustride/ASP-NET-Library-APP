@@ -66,7 +66,7 @@ public class BorrowController : Controller
     {
         if (!ModelState.IsValid)
         {
-            return View("BorrowForm", model); // Powrót do formularza w przypadku błędu
+            return View("Borrow", model); // Powrót do formularza w przypadku błędu
         }
 
         var user = await _userManager.GetUserAsync(User);
@@ -87,7 +87,7 @@ public class BorrowController : Controller
         _context.Borrows.Add(borrow);
         await _context.SaveChangesAsync();
 
-        return RedirectToAction("Index", "Book"); // Przekieruj do listy książek po udanym wypożyczeniu
+        return RedirectToAction("UserBorrows", "Borrow"); // Przekieruj do listy książek po udanym wypożyczeniu
     }
     public async Task<IActionResult> UserBorrows()
     {
@@ -104,6 +104,7 @@ public class BorrowController : Controller
                 Book = new Book { Title = b.Book.Title }, // Zakładamy, że masz dostęp do odpowiednich właściwości
                 BorrowDate = b.BorrowDate,
                 ReturnDate = b.ReturnDate,
+                Library = new Library { Name = b.Library.Name } // Zakładamy, że masz dostęp do odpowiednich właściwości
             })
             .ToList();
 
